@@ -1,6 +1,6 @@
 <?php
 
-    namespace App\Controllers\Estudiantes;
+    namespace App\Controllers\API;
 
     use App\Models\EstudianteModel;
     use CodeIgniter\RESTful\ResourceController;

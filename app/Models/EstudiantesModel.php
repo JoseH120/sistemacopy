@@ -4,7 +4,7 @@
 
     class EstudianteModel extends Model{
         
-        protected $table = 'Estudiantes';
+        protected $table = 'estudiantes';
         protected $primaryKey = 'IdEstudiante';
 
         protected $returnType = 'array';
