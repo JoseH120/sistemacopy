@@ -1,12 +1,12 @@
 <?php
-
     namespace App\Controllers\API;
 
     use App\Models\EstudiantesModel;
     use CodeIgniter\RESTful\ResourceController;
     
 
-    class Estudiantes extends ResourceController{
+    class Estudiantes extends ResourceController
+    {
 
         public function __construct()
         {
@@ -15,8 +15,8 @@
 
         public function index()
         {
-            $estudiantes = $this->model->findAll();
-            return $this->respond($estudiantes);
+           $estudiantes = $this->model->findAll();
+           return $this->respond($estudiantes);
         }
     }
 ?>
