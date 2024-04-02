@@ -7,8 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-//http://localhost/SISTEMA/Estudiantes
 $routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
-    //http://localhost/SISTEMA/Estudiante
-    $routes->get('estudiantes', 'Estudiantes::index');
+   $routes->get('estudiantes', 'Estudiantes::index'); 
 });

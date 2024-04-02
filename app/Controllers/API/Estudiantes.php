@@ -2,15 +2,15 @@
 
     namespace App\Controllers\API;
 
-    use App\Models\EstudianteModel;
+    use App\Models\EstudiantesModel;
     use CodeIgniter\RESTful\ResourceController;
-    use Exception;
+    
 
     class Estudiantes extends ResourceController{
 
         public function __construct()
         {
-            $this->model = $this->setModel(new EstudianteModel());
+            $this->model = $this->setModel(new EstudiantesModel());
         }
 
         public function index()
