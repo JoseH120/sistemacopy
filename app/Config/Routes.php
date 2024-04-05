@@ -7,16 +7,16 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
+$routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes) {
    //http://localhost/sistema/api/estudiantes
-   $routes->get('estudiantes', 'Estudiantes::index'); 
+   $routes->get('estudiantes', 'Estudiantes::index');
 
 
    //http://localhost/sistema/api/tutores
-   $routes->get('tutores', 'Tutores::index'); 
+   $routes->get('tutores', 'Tutores::index');
 
    //http://localhost/sistema/api/tutores/create
-   $routes->post('tutores/create', 'Tutores::create'); 
+   $routes->post('tutores/create', 'Tutores::create');
 
    //http://localhost/sistema/api/tutores/edit
    $routes->get('tutores/edit/(:num)', 'Tutores::edit/$1');
@@ -27,4 +27,9 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function($routes){
    //http://localhost/sistema/api/tutores/delete
    $routes->delete('tutores/delete/(:num)', 'Tutores::delete/$1');
 
+   //http://localhost/sistema/api/cursos/index
+   $routes->get('cursos', 'Cursos::index');
+
+   //http://localhost/sistema/api/cursos/create
+   $routes->post('cursos/create', 'Cursos::create');
 });
