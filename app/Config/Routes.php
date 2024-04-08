@@ -27,9 +27,21 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/tutores/delete
    $routes->delete('tutores/delete/(:num)', 'Tutores::delete/$1');
 
+
+   //URI PARA CONTROLADO DE CURSOS
+
    //http://localhost/sistema/api/cursos/index
    $routes->get('cursos', 'Cursos::index');
 
    //http://localhost/sistema/api/cursos/create
    $routes->post('cursos/create', 'Cursos::create');
+
+   //http://localhost/sistema/api/cursos/edit/
+   $routes->get('cursos/edit/(:num)', 'Cursos::edit/$1');
+
+   //http://localhost/sistema/api/cursos/update/
+   $routes->put('cursos/update/(:num)', 'Cursos::update/$1');
+
+   //http://localhost/sistema/api/cursos/delete/
+   $routes->delete('cursos/delete/(:num)', 'Cursos::delete/$1');
 });
