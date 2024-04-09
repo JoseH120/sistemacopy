@@ -89,4 +89,5 @@ class Cursos extends ResourceController
             return $this->failServerError("Ha ocurrido un error en el servidor.");
         }
     }
+
 }
