@@ -1,29 +1,29 @@
 <?php
     namespace App\Controllers\API;
 
-    use App\Models\TutoresModel;
+    use App\Models\ActividadesModel;
     use CodeIgniter\RESTful\ResourceController;
     use Exception;
 
-    class Tutores extends ResourceController{
+    class Actividades extends ResourceController{
 
         public function __construct()
         {
-            $this->model = $this->setModel(new TutoresModel());
+            $this->model = $this->setModel(new ActividadesModel());
         }
         //Listar 
         public function index(){
-            $tutores = $this->model->findAll();
-            return $this->respond($tutores);
+            $actividades = $this->model->findAll();
+            return $this->respond($actividades);
         }
 
         //servicio de insertar
         public function create (){
             try{
-                $tutores = $this->request->getJSON();
-                if($this->model->insert($tutores)){
-                    $tutores->IdTutor = $this->model->insertID();
-                    return $this->respondCreated($tutores);
+                $actividades = $this->request->getJSON();
+                if($this->model->insert($actividades)){
+                    $actividades->IdActividad = $this->model->insertID();
+                    return $this->respondCreated($actividades);
                 }
                 else{
                     return $this->failValidationError($this->model->listErrors());
@@ -40,11 +40,11 @@
                 if($id == null){
                     return $this->failValidationError('No se ha enviado un id valido');
                 }
-                $tutor = $this->model->find($id);
-                if($tutor == null){
+                $actividad = $this->model->find($id);
+                if($actividad == null){
                     return $this->failNotFound('No se ha encorntrado un registro con el ID: '.$id. ' enviado');
                 }
-                return $this->respond($tutor);
+                return $this->respond($actividad);
             } catch (Exception $e) {
                 return $this->failServerError('Ha ocurrido un error en el servidor');
             }
@@ -56,15 +56,15 @@
                 if($id == null){
                     return $this->failValidationError('No se ha enviado un id valido');
                 }
-                $tutorVerificado = $this->model->find($id);
-                if($tutorVerificado == null){
+                $actividadVerificado = $this->model->find($id);
+                if($actividadVerificado == null){
                     return $this->failNotFound('No se ha encorntrado un registro con el ID: '.$id. ' enviado');
                 }
-                $tutor = $this->request->getJSON();
+                $actividad = $this->request->getJSON();
 
-                if($this->model->update($id, $tutor)){
-                    $tutor->IdTutor = $id;
-                    return $this->respondUpdated($tutor);
+                if($this->model->update($id, $actividad)){
+                    $actividad->IdActividad = $id;
+                    return $this->respondUpdated($actividad);
                 }
                 else{
                     return $this->failValidationError($this->model->validation->listErrors());
@@ -80,13 +80,13 @@
                 if($id == null){
                     return $this->failValidationError('No se ha enviado un id valido');
                 }
-                $tutorVerificado = $this->model->find($id);
-                if($tutorVerificado == null){
+                $actividadVerificada = $this->model->find($id);
+                if($actividadVerificada == null){
                     return $this->failNotFound('No se ha encorntrado un registro con el ID: '.$id. ' enviado');
                 }
                 
                 if($this->model->delete($id)){
-                    return $this->respondDeleted($tutorVerificado);
+                    return $this->respondDeleted($actividadVerificada);
                 }
                 else{
                     return $this->failValidationError('No se ha podido eliminar el registro');

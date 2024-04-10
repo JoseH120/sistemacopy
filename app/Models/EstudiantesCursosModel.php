@@ -12,7 +12,7 @@
 
         protected $useTimestamps = true;
         protected $createdField = 'created_at';
-        protected $updatedField = 'updated_at';
+        protected $updatedField = 'updated_at'; 
         
         protected $validationRules = [
             'IdEstudiante'=> 'required|numeric',
@@ -30,4 +30,3 @@
 
         protected $skipValidation = false;
     }
-?>

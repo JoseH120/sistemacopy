@@ -74,4 +74,21 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    //http://localhost/sistema/api/estudiantescursos/delete/
    $routes->delete('estudiantescursos/delete/(:num)', 'EstudiantesCursos::delete/$1');
+
+
+   //URI PARA CONTROLADO DE ACTIVIDADES
+   //http://localhost/sistema/api/actividades/
+   $routes->get('actividades', 'Actividades::index');
+
+   //http://localhost/sistema/api/actividades/create
+   $routes->post('actividades/create', 'Actividades::create');
+
+   //http://localhost/sistema/api/actividades/edit/
+   $routes->get('actividades/edit/(:num)', 'Actividades::edit/$1');
+
+   //http://localhost/sistema/api/actividades/update/
+   $routes->put('actividades/update/(:num)', 'Actividades::update/$1');
+
+   //http://localhost/sistema/api/actividades/delete/
+   $routes->delete('actividades/delete/(:num)', 'Actividades::delete/$1');
 });
