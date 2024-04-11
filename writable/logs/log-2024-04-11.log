@@ -1,0 +1,7 @@
+CRITICAL - 2024-04-11 13:39:20 --> Call to undefined method App\Models\UsuariosModel::listErrors
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\API\Usuarios.php(35): CodeIgniter\Model->__call('listErrors', [])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Usuarios->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Usuarios))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

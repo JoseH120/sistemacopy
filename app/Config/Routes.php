@@ -91,4 +91,20 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    //http://localhost/sistema/api/actividades/delete/
    $routes->delete('actividades/delete/(:num)', 'Actividades::delete/$1');
+
+   //URI PARA CONTROLADO DE USUARIOS
+   //http://localhost/sistema/api/usuarios/
+   $routes->get('usuarios', 'Usuarios::index');
+
+   //http://localhost/sistema/api/usuarios/create
+   $routes->post('usuarios/create', 'Usuarios::create');
+
+   //http://localhost/sistema/api/usuarios/edit/
+   $routes->get('usuarios/edit/(:num)', 'Usuarios::edit/$1');
+
+   //http://localhost/sistema/api/usuarios/update/
+   $routes->put('usuarios/update/(:num)', 'Usuarios::update/$1');
+
+   //http://localhost/sistema/api/usuarios/delete/
+   $routes->delete('usuarios/delete/(:num)', 'Usuarios::delete/$1');
 });

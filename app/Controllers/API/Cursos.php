@@ -81,7 +81,7 @@ class Cursos extends ResourceController
         try {
             $data = $this->model->find($id);
             if ($data == null) {
-                return $this->failNotFound(("No se ha encontrado un registro con el ID" . $id . " enviado."));
+                return $this->failNotFound("No se ha encontrado un registro con el ID" . $id . " enviado.");
             }
 
             return $this->model->delete($id) ? $this->respondDeleted($data) : $this->failValidationError("No se ha podido eliminar el registro.");
@@ -89,5 +89,4 @@ class Cursos extends ResourceController
             return $this->failServerError("Ha ocurrido un error en el servidor.");
         }
     }
-
 }
