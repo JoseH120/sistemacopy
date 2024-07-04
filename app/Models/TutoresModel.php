@@ -9,7 +9,7 @@
         protected $table = 'tutores';
         protected $primaryKey = 'IdTutor';
         protected $returnType = 'array';
-        protected $allowedFields = ['Nombre', 'Apellido', 'Correo', 'Contacto'];
+        protected $allowedFields = ['Nombre', 'Apellido', 'Correo', 'Contacto', 'IdUsuario'];
 
         protected $useTimestamps = true;
         protected $createdField = 'created_at';
@@ -19,7 +19,8 @@
             'Nombre' => 'required|alpha_space|min_length[3]|max_length[500]',
             'Apellido' => 'required|alpha_space|min_length[3]|max_length[500]',
             'Correo' => 'required|valid_email|max_length[500]',
-            'Contacto' => 'required|numeric',
+            'Contacto' => 'numeric',
+            'IdUsuario' => 'numeric'
         ];
 
         protected $validationMessages = [

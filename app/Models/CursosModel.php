@@ -16,13 +16,19 @@ class CursosModel extends Model
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
-    protected $skipValidation = false;
-
-
+    
     protected $validationRules = [
         "NombreCurso" => 'required',
         "Descripcion" => 'required',
         "Grupo" => 'required',
-        "IdTutor" => 'required'
+        "IdTutor" => 'required|integer|is_valid_tutor'
     ];
+
+    protected $validationMessages = [
+        'IdTutor' => [
+            'is_valid_tutor' => 'Ingrese un id existente en la base de datos'
+        ]
+    ];
+
+    protected $skipValidation = false;
 }

@@ -4,7 +4,7 @@ namespace App\Controllers\API;
 
 use CodeIgniter\RESTful\ResourceController;
 use App\Models\CursosModel;
-use Exception;
+use Exception; 
 
 class Cursos extends ResourceController
 {
