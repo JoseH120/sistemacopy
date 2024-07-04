@@ -76,7 +76,7 @@
             }
         }
 
-        //Servicio de eliminar un registro
+        //Servicio de eliminar un registro 
         public function delete($id = null){
             try {
                 if($id == null){
