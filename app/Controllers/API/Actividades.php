@@ -5,7 +5,8 @@
     use CodeIgniter\RESTful\ResourceController;
     use Exception;
 
-    class Actividades extends ResourceController{
+    class Actividades extends ResourceController
+    {
 
         public function __construct()
         {
@@ -30,7 +31,7 @@
                 }
             }
             catch(Exception $e){
-                return $this->failServerError('Ha ocurrido un error en el servidor.');
+                return $this->failServerError('Ha ocurrido un error en el servidor.'. $e->getMessage());
             }
         }
 

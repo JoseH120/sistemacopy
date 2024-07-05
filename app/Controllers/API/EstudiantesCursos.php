@@ -28,7 +28,7 @@
                 }
             }
             catch(Exception $e){
-                return $this->failServerError('Ha ocurrido un error en el servidor.');
+                return $this->failServerError('Ha ocurrido un error en el servidor.'.$e->getMessage());
             }
         }
 

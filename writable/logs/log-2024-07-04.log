@@ -1,0 +1,87 @@
+ERROR - 2024-07-04 19:14:14 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'cetecbd' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'cetecbd', 3306, '', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistema\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\sistema\app\Controllers\API\Usuarios.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\Usuarios->index()
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Usuarios))
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'cetecbd' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\sistema\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\sistema\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\sistema\app\Controllers\API\Usuarios.php(19): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\Usuarios->index()
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Usuarios))
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-07-04 19:14:15 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'cetecbd'
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `usuarios`', [], false)
+ 3 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\API\Usuarios.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Usuarios->index()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-04 20:49:58 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`cetecbd_v1_2`.`estudiantes`, CONSTRAINT `estudiantes_ibfk_1` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`)) in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `us...', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `us...')
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `us...')
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `us...', Array, false)
+#4 C:\xampp\htdocs\sistema\system\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\sistema\system\BaseModel.php(1080): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\sistema\app\Controllers\API\Usuarios.php(86): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\Usuarios->delete('1')
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Usuarios))
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-04 20:49:58 --> Cannot delete or update a parent row: a foreign key constraint fails (`cetecbd_v1_2`.`estudiantes`, CONSTRAINT `estudiantes_ibfk_1` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`IdUsuario`))
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2790): CodeIgniter\Database\BaseConnection->query('DELETE FROM `usuarios`
+WHERE `IdUsuario` IN :IdUsuario:', [...], false)
+ 2 SYSTEMPATH\Model.php(445): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1080): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\API\Usuarios.php(86): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Usuarios->delete('1')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Usuarios))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-04 23:10:56 --> Call to undefined method App\Models\EstudiantesModel::getErrors
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\API\Estudiantes.php(35): CodeIgniter\Model->__call('getErrors', [])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Estudiantes->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Estudiantes))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-04 23:11:37 --> Call to undefined method App\Models\EstudiantesModel::listErrors
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\API\Estudiantes.php(35): CodeIgniter\Model->__call('listErrors', [])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Estudiantes->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Estudiantes))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-04 23:13:00 --> Too few arguments to function CodeIgniter\RESTful\ResourceController::failValidationErrors(), 0 passed in C:\xampp\htdocs\sistema\app\Controllers\API\Estudiantes.php on line 35 and at least 1 expected
+in SYSTEMPATH\API\ResponseTrait.php on line 241.
+ 1 APPPATH\Controllers\API\Estudiantes.php(35): CodeIgniter\RESTful\ResourceController->failValidationErrors()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Estudiantes->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Estudiantes))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

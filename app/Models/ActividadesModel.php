@@ -38,5 +38,5 @@ class ActividadesModel extends Model
         ]
     ];
 
-    protected $skipValidation = true;
+    protected $skipValidation = false;
 }

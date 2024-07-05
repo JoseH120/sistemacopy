@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes) {
+
    //URI PARA CONTROLADO DE ESTUDIANTES
    //http://localhost/sistema/api/estudiantes
    $routes->get('estudiantes', 'Estudiantes::index');
@@ -107,4 +108,21 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    //http://localhost/sistema/api/usuarios/delete/
    $routes->delete('usuarios/delete/(:num)', 'Usuarios::delete/$1');
+
+   //URI PARA CONTROLADO DE ACTIVIDADES ESTUDIANTES
+   //http://localhost/sistema/api/actividades/
+   $routes->get('actividadesestudiantes', 'ActividadesEstudiantes::index');
+
+   //http://localhost/sistema/api/actividades/create
+   $routes->post('actividadesestudiantes/create', 'ActividadesEstudiantes::create');
+
+   //http://localhost/sistema/api/actividades/edit/
+   $routes->get('actividadesestudiantes/edit/(:num)', 'ActividadesEstudiantes::edit/$1');
+
+   //http://localhost/sistema/api/actividades/update/
+   $routes->put('actividadesestudiantes/update/(:num)', 'ActividadesEstudiantes::update/$1');
+
+   //http://localhost/sistema/api/actividades/delete/
+   $routes->delete('actividadesestudiantes/delete/(:num)', 'ActividadesEstudiantes::delete/$1');
+
 });

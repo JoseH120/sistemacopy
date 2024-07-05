@@ -1,0 +1,136 @@
+CRITICAL - 2024-07-05 13:58:41 --> Call to undefined method App\Models\EstudiantesModel::getJSON
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\API\Estudiantes.php(35): CodeIgniter\Model->__call('getJSON', [])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Estudiantes->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Estudiantes))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-05 13:59:16 --> Call to undefined method App\Models\EstudiantesModel::getlistErrors
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\API\Estudiantes.php(35): CodeIgniter\Model->__call('getlistErrors', [])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Estudiantes->create()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Estudiantes))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-05 15:25:04 --> syntax error, unexpected variable "$e", expecting ")"
+in APPPATH\Controllers\API\Actividades.php on line 33.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\sistema\\app\\Controllers\\API\\Actividades.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\API\\Actividades')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\API\\Actividades')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\API\\Actividades', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-05 15:26:22 --> syntax error, unexpected variable "$e", expecting ")"
+in APPPATH\Controllers\API\Actividades.php on line 33.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\sistema\\app\\Controllers\\API\\Actividades.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\API\\Actividades')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\API\\Actividades')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\API\\Actividades', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-05 16:37:26 --> mysqli_sql_exception: Unknown column 'actividades_estudiantes.Idactividades_estudiantes' in 'where clause' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistema\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\sistema\app\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-05 16:37:27 --> Unknown column 'actividades_estudiantes.Idactividades_estudiantes' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `actividades_estudiantes`
+WHERE `actividades_estudiantes`.`Idactividades_estudiantes` = :actividades_estudiantes.Idactividades_estudiantes:', [...], false)
+ 2 SYSTEMPATH\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+ 4 APPPATH\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-05 16:39:27 --> mysqli_sql_exception: Unknown column 'actividades_estudiantes.Idactividades_estudiantes' in 'where clause' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistema\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\sistema\app\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-05 16:39:28 --> Unknown column 'actividades_estudiantes.Idactividades_estudiantes' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `actividades_estudiantes`
+WHERE `actividades_estudiantes`.`Idactividades_estudiantes` = :actividades_estudiantes.Idactividades_estudiantes:', [...], false)
+ 2 SYSTEMPATH\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+ 4 APPPATH\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-05 16:45:19 --> mysqli_sql_exception: Unknown column 'actividades_estudiantes.Idactividades_estudiantes' in 'where clause' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistema\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\sistema\app\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-05 16:45:19 --> Unknown column 'actividades_estudiantes.Idactividades_estudiantes' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `actividades_estudiantes`
+WHERE `actividades_estudiantes`.`Idactividades_estudiantes` = :actividades_estudiantes.Idactividades_estudiantes:', [...], false)
+ 2 SYSTEMPATH\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+ 4 APPPATH\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-05 16:46:28 --> mysqli_sql_exception: Unknown column 'actividades_estudiantes.Idactividades_estudiante' in 'where clause' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistema\system\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\system\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\sistema\app\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+#9 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-05 16:46:28 --> Unknown column 'actividades_estudiantes.Idactividades_estudiante' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `actividades_estudiantes`
+WHERE `actividades_estudiantes`.`Idactividades_estudiante` = :actividades_estudiantes.Idactividades_estudiante:', [...], false)
+ 2 SYSTEMPATH\Model.php(196): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(563): CodeIgniter\Model->doFind(true, '1')
+ 4 APPPATH\Controllers\API\ActividadesEstudiantes.php(43): CodeIgniter\BaseModel->find('1')
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\ActividadesEstudiantes->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\ActividadesEstudiantes))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

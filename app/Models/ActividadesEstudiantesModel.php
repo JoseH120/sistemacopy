@@ -5,7 +5,7 @@
 
     class ActividadesEstudiantesModel extends Model{
         protected $table = 'actividades_estudiantes';
-        protected $primaryKey = 'Idactividades_estudiantes';
+        protected $primaryKey = 'Idactividad_estudiante';
         protected $returnType = 'array';
         protected $allowedFields = ['Nota', 'UrlTarea', 'IdActividad'];
         protected $useTimestamps = true;

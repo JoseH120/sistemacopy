@@ -16,14 +16,13 @@
         protected $createdField = 'created_at';
         protected $updatedField = 'updated_at';
         protected $validationRules = [
-        "Usuario" => 'required|max_length[30]|is_unique[usuarios.usuario]',
+        "Usuario" => 'required|max_length[30]',
         "Clave" => 'required|max_length[255]|min_length[10]',
         "Tipo" => 'required',
         ];
         protected $validationMessages = [
             'Usuario' => [
-                'max_length' => 'Debe tener 30 caracteres por lo menos',
-                'is_unique' => 'El usuario se encunetra registrado',
+                'max_length' => 'Debe tener 30 caracteres por lo menos'
             ],
             'Clave' => [
                 'min_length' => 'Debe contener al menos 8 caracteres',

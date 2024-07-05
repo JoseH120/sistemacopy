@@ -32,7 +32,7 @@ class Cursos extends ResourceController
                 return $this->failValidationError($this->model->listErrors());
             }
         } catch (Exception $e) {
-            return $this->failServerError('Ha ocurrido un error en el servidor.');
+            return $this->failServerError('Ha ocurrido un error en el servidor.'. $e->getMessage());
         }
     }
     //Servicio para buscar un registro.

@@ -19,7 +19,7 @@
             'Nombre' => 'required|alpha_space|min_length[3]|max_length[500]',
             'Apellido' => 'required|alpha_space|min_length[3]|max_length[500]',
             'Correo' => 'required|valid_email|max_length[500]',
-            'Contacto' => 'numeric',
+            'Contacto' => 'permit_empty|numeric',
             'IdUsuario' => 'numeric'
         ];
 

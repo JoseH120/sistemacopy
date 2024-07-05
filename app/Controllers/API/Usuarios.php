@@ -72,7 +72,7 @@ class Usuarios extends ResourceController
                 return $this->failValidationError($this->model->validation->listErrors());
             }
         } catch (Exception $e) {
-            return $e->getMessage();
+            return $this->failServerError("Ha ocurrido un error en el servidor.");;
         }
     }
 
