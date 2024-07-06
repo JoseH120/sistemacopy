@@ -1,0 +1,52 @@
+ERROR - 2024-07-06 01:47:42 --> mysqli_sql_exception: Unknown column 'estudiante.PrimerNombre' in 'field list' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\sistema\app\Models\CursosModel.php(69): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\app\Controllers\API\Cursos.php(105): App\Models\CursosModel->listByCourse('2')
+#6 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\Cursos->getListByCourse('2')
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Cursos))
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-07-06 01:47:43 --> Unknown column 'estudiante.PrimerNombre' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `estudiante`.`PrimerNombre`, `estudiante`.`SegundoNombre`, `estudiante`.`PrimerApellido`, `estudiante`.`SegundoApellido`, `estudiante`.`Dui`, `estudiante`.`Direccion`, `estudiante`.`FechaNacimiento`, `estudiante`.`Responsable`, `estudiante`.`Correo`, `estudiante`.`VacunaCovid`, `estudiante`.`IdUsuario`, `estudiante`.`created_at`, `estudiante`.`updated_at`
+FROM `cursos`
+JOIN `estudiantes_cursos` ON `curso`.`IdCurso` = `estudiantes_cursos`.`IdCurso`
+JOIN `estudiantes` ON `estudiantes`.`IdEstudiante` = `estudiantes_cursos`.`IdEstudiante`
+WHERE `curso`.`IdCurso` = :curso.IdCurso:', [...], false)
+ 2 APPPATH\Models\CursosModel.php(69): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\API\Cursos.php(105): App\Models\CursosModel->listByCourse('2')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Cursos->getListByCourse('2')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Cursos))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-06 01:49:39 --> mysqli_sql_exception: Unknown column 'estudiante.PrimerNombre' in 'field list' in C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\sistema\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `estudia...', 0)
+#1 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estudia...')
+#2 C:\xampp\htdocs\sistema\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estudia...')
+#3 C:\xampp\htdocs\sistema\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `estudia...', Array, false)
+#4 C:\xampp\htdocs\sistema\app\Models\CursosModel.php(67): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistema\app\Controllers\API\Cursos.php(105): App\Models\CursosModel->listByCourse('2')
+#6 C:\xampp\htdocs\sistema\system\CodeIgniter.php(919): App\Controllers\API\Cursos->getListByCourse('2')
+#7 C:\xampp\htdocs\sistema\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Cursos))
+#8 C:\xampp\htdocs\sistema\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistema\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2024-07-06 01:49:39 --> Unknown column 'estudiante.PrimerNombre' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `estudiante`.`PrimerNombre`, `estudiante`.`SegundoNombre`, `estudiante`.`PrimerApellido`, `estudiante`.`SegundoApellido`, `estudiante`.`Dui`, `estudiante`.`Direccion`, `estudiante`.`FechaNacimiento`, `estudiante`.`Responsable`, `estudiante`.`Correo`, `estudiante`.`VacunaCovid`, `estudiante`.`IdUsuario`, `estudiante`.`created_at`, `estudiante`.`updated_at`
+FROM `cursos`
+JOIN `estudiantes_cursos` ON `curso`.`IdCurso` = `estudiantes_cursos`.`IdCurso`
+JOIN `estudiantes` ON `estudiantes`.`IdEstudiante` = `estudiantes_cursos`.`IdEstudiante`
+WHERE `curso`.`IdCurso` = :curso.IdCurso:', [...], false)
+ 2 APPPATH\Models\CursosModel.php(67): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\API\Cursos.php(105): App\Models\CursosModel->listByCourse('2')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\API\Cursos->getListByCourse('2')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\API\Cursos))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

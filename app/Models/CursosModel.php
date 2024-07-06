@@ -48,4 +48,39 @@ class CursosModel extends Model
     ];
 
     protected $skipValidation = false;
+
+    public function listByCourse($cursoID = null){
+
+        $builder = $this->db->table($this->table);
+
+        $builder->select('estudiantes.IdEstudiante, estudiantes.PrimerNombre, estudiantes.SegundoNombre');
+        $builder->select('estudiantes.PrimerApellido, estudiantes.SegundoApellido');
+
+        $builder->join('estudiantes_cursos', 'cursos.IdCurso = estudiantes_cursos.IdCurso');
+        $builder->join('estudiantes', 'estudiantes.IdEstudiante = estudiantes_cursos.IdEstudiante');
+
+        $builder->where('cursos.IdCurso',$cursoID);
+
+        $query = $builder->get();
+
+        return $query->getResult();
+    }
+
+    public function tutor($cursoID = null){
+
+        $builder = $this->db->table($this->table);
+
+        $builder->select('tutores.IdTutor, tutores.Nombre, tutores.Apellido');
+        $builder->select('tutores.Correo, tutores.Contacto');
+
+        $builder->join('tutores', 'tutores.IdTutor = cursos.IdTutor');
+        
+        $builder->where('cursos.IdCurso',$cursoID);
+
+        $query = $builder->get();
+
+        return $query->getResult();
+    }
+
+    
 }
