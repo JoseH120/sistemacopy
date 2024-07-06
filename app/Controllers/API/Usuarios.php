@@ -29,10 +29,10 @@ class Usuarios extends ResourceController
                 $usuario->IdUsuario = $this->model->insertID();
                 return $this->respondCreated($usuario);
             } else {
-                return $this->failValidationError($this->model->listErrors());
+                return $this->failValidationError($this->model->validation->listErrors());
             }
         } catch (Exception $e) {
-            return $this->failServerError("Ha ocurrido un error en el servidor.");
+            return $this->failServerError("Ha ocurrido un error en el servidor.". $e->getMessage());
         }
     }
 

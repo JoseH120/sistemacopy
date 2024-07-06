@@ -28,7 +28,7 @@
                     return $this->respondCreated($estudiante);
                 }
                 else{
-                    return $this->failValidationError($this->model->listErrors());
+                    return $this->failValidationError($this->model->validation->listErrors());
                 }
             }
             catch(Exception $e){

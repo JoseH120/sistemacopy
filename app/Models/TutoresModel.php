@@ -20,12 +20,33 @@
             'Apellido' => 'required|alpha_space|min_length[3]|max_length[500]',
             'Correo' => 'required|valid_email|max_length[500]',
             'Contacto' => 'permit_empty|numeric',
-            'IdUsuario' => 'numeric'
+            'IdUsuario' => 'numeric|is_valid_usuario'
         ];
 
         protected $validationMessages = [
+            'Nombre' => [
+                'required' => 'El valor es requerido',
+                'alpha_space' => 'Solo debe contener letras del alfabeto y espacios',
+                'min_length' => 'Debe ser mayor que 3 caracteres',
+                'max_length' => 'Debe ser menor de 500 caracteres'
+            ],
+            'Apellido' => [
+                'required' => 'El valor es requerido',
+                'alpha_space' => 'Solo debe contener letras del alfabeto y espacios',
+                'min_length' => 'Debe ser mayor que 3 caracteres',
+                'max_length' => 'Debe ser menor de 500 caracteres'
+            ],
             'Correo' => [
-                'valid_email' => 'Estimado usuario, debe ingresar un email valido'
+                'required' => 'El valor es requerido',
+                'valid_email' => 'Estimado usuario, debe ingresar un email valido',
+                'max_length' => 'Debe ser menor de 500 caracteres'
+            ],
+            'Contacto' => [
+                'numeric'=> 'Debe ingresar un numero'
+            ],
+            'IdUsuario' => [
+                'numeric'=> 'Debe ingresar un numero',
+                'is_valid_usuario' => 'el id usuario no existe'
             ]
         ];
 

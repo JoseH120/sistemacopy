@@ -24,17 +24,30 @@ class ActividadesModel extends Model
         'Tema' => 'required|min_length[3]|max_length[500]',
         'Descripcion' => 'required|min_length[3]|max_length[500]',
         'UrlRecurso' => 'required|min_length[3]|max_length[600]',
-        'IdCurso' => 'required|numeric'
+        'IdCurso' => 'required|numeric|is_valid_curso'
     ];
 
     protected $validationMessages = [
+        'Tema' => [
+            'required' => 'El valor es requerido',
+            'min_length' => 'Debe ser mayor que 3 caracteres',
+            'max_length' => 'Debe ser menor de 500 caracteres'
+
+        ],
+        'Descripcion' => [
+            'required' => 'El valor es requerido',
+            'min_length' => 'Debe ser mayor que 3 caracteres',
+            'max_length' => 'Debe ser menor de 500 caracteres'
+        ],
         'UrlRecurso' => [
             'min_length' => 'Ingresar una cadena de texto mayor a 3 caracteres',
             'max_length' => 'Ingrese una cadena de texto menor a 600 caracteres'
         ],
 
         'IdCurso'=> [
-            'numeric'=> 'Estimado usuario, debe ingresar un numero como ID '
+            'required' => 'El valor es requerido',
+            'numeric'=> 'Estimado usuario, debe ingresar un numero como ID ',
+            'is_valid_curso' => 'el id curso no existe'
         ]
     ];
 

@@ -15,16 +15,20 @@
         protected $updatedField = 'updated_at'; 
         
         protected $validationRules = [
-            'IdEstudiante'=> 'required|numeric',
-            'IdCurso'=> 'required|numeric'
+            'IdEstudiante'=> 'required|numeric|is_valid_estudiante',
+            'IdCurso'=> 'required|numeric|is_valid_curso'
         ];
 
         protected $validationMessages = [
             'IdEstudiante' => [
-                'numeric' => 'Estimado usuario, debe ingresar un numero como ID '
+                'required' => 'El valor es requerido',
+                'numeric' => 'Estimado usuario, debe ingresar un numero como ID ',
+                'is_valid_estudiante' => 'el id estudiante no existe'
             ],
             'IdCurso'=> [
-                'numeric'=> 'Estimado usuario, debe ingresar un numero como ID '
+                'required' => 'El valor es requerido',
+                'numeric'=> 'Estimado usuario, debe ingresar un numero como ID ',
+                'is_valid_curso' => 'el id curso no existe'
             ]
         ];
 

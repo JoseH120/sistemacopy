@@ -26,7 +26,7 @@
                     return $this->respondCreated($actividadesEstudiantes);
                 }
                 else{
-                    return $this->failValidationError($this->model->listErrors());
+                    return $this->failValidationError($this->model->validation->listErrors());
                 }
             }
             catch(Exception $e){

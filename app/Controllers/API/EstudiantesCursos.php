@@ -15,7 +15,7 @@
             $estudiantesCursos = $this->model->findAll();
             return $this->respond($estudiantesCursos);  
         }
-
+        //servicio de insertar
         public function create(){
             try{
                 $estudiantesCursos = $this->request->getJSON();
@@ -24,7 +24,7 @@
                     return $this->respondCreated($estudiantesCursos);
                 }
                 else{
-                    return $this->failValidationError($this->model->listErrors());
+                    return $this->failValidationError($this->model->validation->listErrors());
                 }
             }
             catch(Exception $e){

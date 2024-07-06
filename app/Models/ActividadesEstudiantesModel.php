@@ -14,10 +14,28 @@
         protected $validationRules = [
             'Nota' => 'required|numeric|less_than[11]|greater_than[0]',
             'UrlTarea' => 'required|min_length[3]|max_length[600]',
-            'IdActividad' => 'required|numeric'
+            'IdActividad' => 'required|numeric|is_valid_actividad'
         ];
 
-        protected $validationMessages = [];
+        protected $validationMessages = [
+            'Nota' => [
+                'required' => 'El valor es requerido',
+                'numeric' => 'Debe ingresar un valor numerico',
+                'less_than' => 'El numero debe ser menor o igual a 10',
+                'greater_than' => 'El numero debe ser mayor o igual a 1'
+            ],
+            'UrlTarea' => [
+                'required' => 'El valor es requerido',
+                'min_length' => 'La URL debe ser mayor que 3 caracteres',
+                'max_length' => 'La URL excede de 600 caracteres'
+            ],
+            'IdActividad' => [
+                'required' => 'El valor es requerido',
+                'numeric' => 'Debe ingresar un valor numerico',
+                'is_valid_actividad' => 'el id actividad no existe'
+            ]
+
+        ];
 
         protected $skipValidation = false;
     }

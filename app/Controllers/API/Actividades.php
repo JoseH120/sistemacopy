@@ -27,11 +27,11 @@
                     return $this->respondCreated($actividades);
                 }
                 else{
-                    return $this->failValidationError($this->model->listErrors());
+                    return $this->failValidationError($this->model->validation->listErrors());
                 }
             }
             catch(Exception $e){
-                return $this->failServerError('Ha ocurrido un error en el servidor.'. $e->getMessage());
+                return $this->failServerError('Ha ocurrido un error en el servidor.');
             }
         }
 
@@ -39,7 +39,7 @@
         public function edit($id = null){
             try {
                 if($id == null){
-                    return $this->failValidationError('No se ha enviado un id valido');
+                    return $this->failValidationErrors('No se ha enviado un id valido');
                 }
                 $actividad = $this->model->find($id);
                 if($actividad == null){

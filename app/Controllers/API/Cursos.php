@@ -19,7 +19,7 @@ class Cursos extends ResourceController
         $cursos = $this->model->findAll();
         return $this->respond($cursos);
     }
-
+    //Servicio para crear un registro
     public function create()
     {
 
@@ -29,10 +29,10 @@ class Cursos extends ResourceController
                 $cursos->IdCurso = $this->model->insertID();
                 return $this->respondCreated($cursos);
             } else {
-                return $this->failValidationError($this->model->listErrors());
+                return $this->failValidationError($this->model->validation->listErrors());
             }
         } catch (Exception $e) {
-            return $this->failServerError('Ha ocurrido un error en el servidor.'. $e->getMessage());
+            return $this->failServerError('Ha ocurrido un error en el servidor.');
         }
     }
     //Servicio para buscar un registro.
