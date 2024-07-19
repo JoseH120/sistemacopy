@@ -110,19 +110,19 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->delete('usuarios/delete/(:num)', 'Usuarios::delete/$1');
 
    //URI PARA CONTROLADO DE ACTIVIDADES ESTUDIANTES
-   //http://localhost/sistema/api/actividades/
+   //http://localhost/sistema/api/actividadesestudiantes/
    $routes->get('actividadesestudiantes', 'ActividadesEstudiantes::index');
 
-   //http://localhost/sistema/api/actividades/create
+   //http://localhost/sistema/api/actividadesestudiantes/create
    $routes->post('actividadesestudiantes/create', 'ActividadesEstudiantes::create');
 
-   //http://localhost/sistema/api/actividades/edit/
+   //http://localhost/sistema/api/actividadesestudiantes/edit/
    $routes->get('actividadesestudiantes/edit/(:num)', 'ActividadesEstudiantes::edit/$1');
 
-   //http://localhost/sistema/api/actividades/update/
+   //http://localhost/sistema/api/actividadesestudiantes/update/
    $routes->put('actividadesestudiantes/update/(:num)', 'ActividadesEstudiantes::update/$1');
 
-   //http://localhost/sistema/api/actividades/delete/
+   //http://localhost/sistema/api/actividadesestudiantes/delete/
    $routes->delete('actividadesestudiantes/delete/(:num)', 'ActividadesEstudiantes::delete/$1');
 
    //ListarEstudiantes delCurso
