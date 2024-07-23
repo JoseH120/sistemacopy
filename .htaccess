@@ -52,5 +52,3 @@ Options -Indexes
 		Header set Access-Control-Allow-Headers "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
 		Header set Access-Control-Allow-Methods "GET, POST, PATCH, PUT, DELETE, OPTIONS"
 	</IfModule>
-
-'

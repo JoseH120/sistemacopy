@@ -6,8 +6,7 @@ use App\Models\UsuariosModel;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
 
-
-if($_SERVER['REQUEST_METHOD'] === 'OPTIONS'){
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
     header('Access-Control-Allow-Headers: token, Content-Type');
@@ -45,7 +44,7 @@ class Usuarios extends ResourceController
                 return $this->failValidationError($this->model->validation->listErrors());
             }
         } catch (Exception $e) {
-            return $this->failServerError("Ha ocurrido un error en el servidor.". $e->getMessage());
+            return $this->failServerError("Ha ocurrido un error en el servidor." . $e->getMessage());
         }
     }
 
