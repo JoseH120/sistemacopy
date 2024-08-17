@@ -3,13 +3,22 @@
         'name' => 'codeigniter4/framework',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'fe25f2288d836222a805453ba7bf00c5224e4d04',
+        'reference' => '2d7d6dc43334081a527ac24492acb7ac391d3ff6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'bshaffer/oauth2-server-php' => array(
+            'pretty_version' => 'v1.10.0',
+            'version' => '1.10.0.0',
+            'reference' => 'd158878425392fe5a0cc34f15dbaf46315ae0ed9',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bshaffer/oauth2-server-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'codeigniter/coding-standard' => array(
             'pretty_version' => 'v1.7.1',
             'version' => '1.7.1.0',
@@ -22,7 +31,7 @@
         'codeigniter4/framework' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'fe25f2288d836222a805453ba7bf00c5224e4d04',
+            'reference' => '2d7d6dc43334081a527ac24492acb7ac391d3ff6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
