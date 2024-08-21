@@ -109,6 +109,11 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/usuarios/delete/
    $routes->delete('usuarios/delete/(:num)', 'Usuarios::delete/$1');
 
+   //http://localhost/sistema/api/usuarios/login
+   $routes->post('usuarios/login', 'Usuarios::login');
+   //http://localhost/sistema/api/usuarios/create
+   //$routes->post('usuarios/create', 'Usuarios::create');
+
    //URI PARA CONTROLADO DE ACTIVIDADES ESTUDIANTES
    //http://localhost/sistema/api/actividadesestudiantes/
    $routes->get('actividadesestudiantes', 'ActividadesEstudiantes::index');

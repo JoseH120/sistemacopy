@@ -2,24 +2,29 @@
 
 namespace App\Controllers\API;
 
+use App\Libraries\Oauth;
 use App\Models\UsuariosModel;
+use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
+use OAuth2\Request;
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-        header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
-        header('Access-Control-Allow-Headers: token, Content-Type');
-        header('Access-Control-Max-Age: 1728000');
-        header('Content-Length: 0');
-        header('Content-Type: text/plain');
-        die();
-}
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+// if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+//     header('Access-Control-Allow-Origin: *');
+//     header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+//     header('Access-Control-Allow-Headers: token, Content-Type');
+//     header('Access-Control-Max-Age: 1728000');
+//     header('Content-Length: 0');
+//     header('Content-Type: text/plain');
+//     die();
+// }
+// header('Access-Control-Allow-Origin: *');
+// header('Content-Type: application/json');
 
 class Usuarios extends ResourceController
 {
+    use ResponseTrait;
+
     public function __construct()
     {
         $this->model = $this->setModel(new UsuariosModel());
@@ -99,5 +104,16 @@ class Usuarios extends ResourceController
         } catch (Exception $e) {
             return $e->getMessage();
         }
+    }
+
+    //AGREGANDO LOGIN FUNCTION
+    public function login()
+    {
+        $oauth = new Oauth();
+        $request = new Request();
+        $respond = $oauth->server->handleTokenRequest($request->createFromGlobals());
+        $code = $respond->getStatusCode();
+        $body = $respond->getResponseBody();
+        return $this->respond(json_decode($body), $code);
     }
 }
