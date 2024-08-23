@@ -34,63 +34,63 @@
 
         protected $validationMessages = [
             'PrimerNombre' => [
-                'required' => 'El valor es requerido',
-                'alpha' => 'El nombre solo debe contener letras del alfabeto',
-                'min_length' => 'Debe ser mayor que 3 caracteres',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'required' => 'El valor "primer nombre" es requerido',
+                'alpha' => 'El "primer nombre" solo debe contener letras del alfabeto',
+                'min_length' => '"Primer nombre" debe ser mayor que 3 caracteres',
+                'max_length' => '"Primer nombre" debe ser menor de 500 caracteres'
 
             ],
             'SegundoNombre' => [
-                'required' => 'El valor es requerido',
-                'alpha' => 'El nombre solo debe contener letras del alfabeto',
-                'min_length' => 'Debe ser mayor que 3 caracteres',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'required' => 'El valor "segundo nombre" es requerido',
+                'alpha' => 'El "segundo nombre" solo debe contener letras del alfabeto',
+                'min_length' => '"Segundo nombre" debe ser mayor que 3 caracteres',
+                'max_length' => '"Segundo nombre" debe ser menor de 500 caracteres'
 
             ],
             'PrimerApellido' => [
-                'required' => 'El valor es requerido',
-                'alpha' => 'El apellido solo debe contener letras del alfabeto',
-                'min_length' => 'Debe ser mayor que 3 caracteres',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'required' => 'El valor "primer apellido" es requerido',
+                'alpha' => 'El "primer apellido" solo debe contener letras del alfabeto',
+                'min_length' => '"Primer apellido" debe ser mayor que 3 caracteres',
+                'max_length' => '"Primer apellido" debe ser menor de 500 caracteres'
 
             ],
             'SegundoApellido' => [
-                'required' => 'El valor es requerido',
-                'alpha' => 'El apellido solo debe contener letras del alfabeto',
-                'min_length' => 'Debe ser mayor que 3 caracteres',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'required' => 'El valor "segundo apellido" es requerido',
+                'alpha' => 'El "segundo apellido" solo debe contener letras del alfabeto',
+                'min_length' => '"Segundo apellido" debe ser mayor que 3 caracteres',
+                'max_length' => '"Segundo apellido" debe ser menor de 500 caracteres'
 
             ],
             'Dui' => [
-                'exact_length' => 'Debe tener entre 9 a 10 caracteres para ser aceptado'
+                'exact_length' => '"DUI" debe tener entre 9 a 10 caracteres para ser aceptado'
             ],
             'Direccion' => [
-                'required' => 'El valor es requerido',
-                'alpha_dash' => 'solo recibe caracteres alfanuméricos, guiones bajos o guiones en ASCII',
-                'min_length' => 'Debe ser mayor que 3 caracteres',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'required' => 'El valor "direccion" es requerido',
+                'alpha_dash' => '"Direccion" solo recibe caracteres alfanuméricos, guiones bajos o guiones en ASCII',
+                'min_length' => '"Direccion" debe ser mayor que 3 caracteres',
+                'max_length' => '"Direccion" debe ser menor de 500 caracteres'
             ],
             'FechaNacimiento' => [
-                'required' => 'El valor es requerido',
+                'required' => 'El valor "fecha nacimiento" es requerido',
                 'valid_date' => 'La fecha es invalida',
             ],
             'Responsable' => [
-                'alpha_space' => 'Solo debe contener letras del alfabeto y espacios',
-                'min_length' => 'Debe ser mayor que 3 caracteres',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'alpha_space' => 'El nombre del "responsable" solo debe contener letras del alfabeto y/o espacios',
+                'min_length' => 'El nombre del "responsable" debe ser mayor que 3 caracteres',
+                'max_length' => 'El nombre del "responsable" debe ser menor de 500 caracteres'
             ],
             'Correo' => [
                 'valid_email' => 'Estimado usuario, debe ingresar un email valido'
             ],
             'VacunaCovid' => [
-                'required' => 'El valor es requerido',
-                'numeric'=> 'Debe ingresar un numero',
-                'greater_than' => 'El numero dene ser mayor que 0',
-                'less_than' => 'El numero dene ser menor que 3',
+                'required' => 'El valor "vacuna COVID" es requerido',
+                'numeric'=> '"Vacuna COVID" debe ser un numero entre [1-2]',
+                'greater_than' => 'El numero "vacuna COVID" debe ser mayor que 0',
+                'less_than' => 'El numero "vacuna COVID" debe ser menor que 3',
             ],
             'IdUsuario' => [
-                'required' => 'El valor es requerido',
-                'numeric'=> 'Debe ingresar un numero',
+                'required' => 'El valor "ID usuario" es requerido',
+                'numeric'=> 'El "ID usuario" debe ser un numero',
                 'is_valid_usuario' => 'el id usuario no existe'
             ]
         ];

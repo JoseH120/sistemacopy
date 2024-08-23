@@ -29,15 +29,15 @@ class ActividadesModel extends Model
 
     protected $validationMessages = [
         'Tema' => [
-            'required' => 'El valor es requerido',
-            'min_length' => 'Debe ser mayor que 3 caracteres',
-            'max_length' => 'Debe ser menor de 500 caracteres'
+            'required' => 'El valor "tema" es requerido',
+            'min_length' => '"Tema" debe ser mayor que 3 caracteres',
+            'max_length' => '"Tema" debe ser menor de 500 caracteres'
 
         ],
         'Descripcion' => [
-            'required' => 'El valor es requerido',
-            'min_length' => 'Debe ser mayor que 3 caracteres',
-            'max_length' => 'Debe ser menor de 500 caracteres'
+            'required' => 'El valor "descripcion" es requerido',
+            'min_length' => '"Descripcion" debe ser mayor que 3 caracteres',
+            'max_length' => '"Descripcion" debe ser menor de 500 caracteres'
         ],
         'UrlRecurso' => [
             'min_length' => 'Ingresar una cadena de texto mayor a 3 caracteres',
@@ -45,8 +45,8 @@ class ActividadesModel extends Model
         ],
 
         'IdCurso'=> [
-            'required' => 'El valor es requerido',
-            'numeric'=> 'Estimado usuario, debe ingresar un numero como ID ',
+            'required' => 'El valor "ID Curso" es requerido',
+            'numeric'=> 'Estimado usuario, debe ingresar un numero como ID curso',
             'is_valid_curso' => 'el id curso no existe'
         ]
     ];

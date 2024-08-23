@@ -20,9 +20,9 @@
 
         protected $validationMessages = [
             'Nota' => [
-                'numeric' => 'Debe ingresar un valor numerico',
-                'less_than' => 'El numero debe ser menor o igual a 10',
-                'greater_than' => 'El numero debe ser mayor o igual a 1'
+                'numeric' => 'Debe ingresar un valor numerico para el campo nota',
+                'less_than' => 'La nota debe ser menor o igual a 10',
+                'greater_than' => 'La nota debe ser mayor o igual a 1'
             ],
             'UrlTarea' => [
                 'required' => 'El valor es requerido',

@@ -22,16 +22,16 @@
         ];
         protected $validationMessages = [
             'Usuario' => [
-                'required' => 'El valor es requerido',
-                'max_length' => 'Debe tener 30 caracteres como maximo'
+                'required' => 'El valor "usuario" es requerido',
+                'max_length' => '"Usuario" debe tener 30 caracteres como maximo'
             ],
             'Clave' => [
-                'required' => 'El valor es requerido',     
-                'min_length' => 'Debe contener al menos 8 caracteres',
-                'max_length' => 'Debe contener menos que 255 caracteres'
+                'required' => 'El valor "contraseña" es requerido',     
+                'min_length' => '"Contraseña" debe contener al menos 8 caracteres',
+                'max_length' => '"Contraseña" debe contener menos que 255 caracteres'
             ],
             'Tipo' => [
-                'required' => 'El valor es requerido'
+                'required' => 'El valor "tipo" es requerido'
             ]
         ];
         protected $skipValidation = false;

@@ -26,24 +26,24 @@ class CursosModel extends Model
 
     protected $validationMessages = [
         'NombreCurso' => [
-            'required' => 'El valor es requerido',
-            'min_length' => 'Debe ser mayor que 3 caracteres',
-            'max_length' => 'Debe ser menor de 500 caracteres'
+            'required' => 'El valor "nombre del curso" es requerido',
+            'min_length' => '"Nombre del curso" debe ser mayor que 3 caracteres',
+            'max_length' => '"Nombre del curso" debe ser menor de 500 caracteres'
         ],
         'Descripcion' => [
-            'required' => 'El valor es requerido',
-            'min_length' => 'Debe ser mayor que 3 caracteres',
-            'max_length' => 'Debe ser menor de 500 caracteres'
+            'required' => 'El valor "descripcion" es requerido',
+            'min_length' => '"Descripcion" debe ser mayor que 3 caracteres',
+            'max_length' => '"Descripcion" debe ser menor de 500 caracteres'
         ],
         'Grupo' => [
-            'required' => 'El valor es requerido',
-            'min_length' => 'Debe ser mayor que 2 caracteres',
-            'max_length' => 'Debe ser menor de 50 caracteres'
+            'required' => 'El valor "grupo" es requerido',
+            'min_length' => 'El "grupo" debe ser mayor que 2 caracteres',
+            'max_length' => 'El "grupo" debe ser menor de 50 caracteres'
         ],
         'IdTutor' => [
-            'required' => 'El valor es requerido',
-            'integer' => 'El valor debe ser entero',
-            'is_valid_tutor' => 'Ingrese un id existente en la base de datos'
+            'required' => 'El valor "ID Tutor" es requerido',
+            'integer' => 'El valor "ID Tutor" debe ser entero',
+            'is_valid_tutor' => 'Ingrese un ID tutor existente en la base de datos'
         ]
     ];
 

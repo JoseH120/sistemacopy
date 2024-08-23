@@ -25,10 +25,10 @@
 
         protected $validationMessages = [
             'Nombre' => [
-                'required' => 'El valor es requerido',
-                'alpha_space' => 'Solo debe contener letras del alfabeto y espacios',
-                'min_length' => 'Debe ser mayor que 3 caracteres',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'required' => 'El valor "nombre" es requerido',
+                'alpha_space' => '"Nombre" solo debe contener letras del alfabeto y espacios',
+                'min_length' => '"Nombre" debe ser mayor que 3 caracteres',
+                'max_length' => '"Nombre" debe ser menor de 500 caracteres'
             ],
             'Apellido' => [
                 'required' => 'El valor es requerido',
@@ -37,15 +37,15 @@
                 'max_length' => 'Debe ser menor de 500 caracteres'
             ],
             'Correo' => [
-                'required' => 'El valor es requerido',
+                'required' => 'El valor "email" es requerido',
                 'valid_email' => 'Estimado usuario, debe ingresar un email valido',
-                'max_length' => 'Debe ser menor de 500 caracteres'
+                'max_length' => '"Email" debe ser menor de 500 caracteres'
             ],
             'Contacto' => [
-                'numeric'=> 'Debe ingresar un numero'
+                'numeric'=> 'Para el valor "contacto" debe ingresar un numero'
             ],
             'IdUsuario' => [
-                'numeric'=> 'Debe ingresar un numero',
+                'numeric'=> 'Debe ingresar un numero para el ID "usuario"',
                 'is_valid_usuario' => 'el id usuario no existe'
             ]
         ];
