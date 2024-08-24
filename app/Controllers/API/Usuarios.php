@@ -100,4 +100,9 @@ class Usuarios extends ResourceController
             return $e->getMessage();
         }
     }
+
+    public function getUsuariosNoAsignados(){
+        $usuarios = $this->model->usuariosNoAsignados();
+        return $this->respond($usuarios);   
+    }
 }

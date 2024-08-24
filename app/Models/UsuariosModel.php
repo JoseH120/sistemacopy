@@ -35,6 +35,16 @@
             ]
         ];
         protected $skipValidation = false;
+
+        public function usuariosNoAsignados(){
+            $builder = $this->db->table($this->table);
+            $builder->select('IdUsuario, Usuario, Tipo');
+            $builder->where('IdUsuario NOT IN (SELECT idusuario FROM tutores)');
+
+            $query = $builder->get();
+
+            return $query->getResult();
+        }
     }
-?>
+
 
