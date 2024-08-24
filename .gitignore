@@ -84,7 +84,7 @@ tests/coverage*
 #-------------------------
 # Composer
 #-------------------------
-vendor/**/*.php
+vendor
 composer.lock
 
 #-------------------------
