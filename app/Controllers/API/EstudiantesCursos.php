@@ -90,5 +90,34 @@
             }
         }
 
+        //Servicio que lista los cursos de un estudiante
+        public function getCursosByEstudiante($id){
+            try{
+                if($id == null){
+                    return $this->failValidationError('No se ha recibido un ID valido');
+                }
+                $EC = $this->model->cursosByEstudiante($id);
+    
+                return $this->respond($EC);
+            }
+            catch(Exception $e){
+                return $this->failServerError('Ha ocurrido un error en el servidor'.$e->getMessage());
+            }
+        }
+
+        //Servicio que devuelve el listado de estudiantes del curso
+        public function getListByCourse($idCurso){
+            try{
+                if($idCurso == null){
+                    return $this->failValidationError('No se ha recibido un ID valido');
+                }
+                $EC = $this->model->listByCourse($idCurso);
+                return $this->respond($EC);
+            }
+            catch(Exception $e){
+                return $this->failServerError('Ha ocurrido un error en el servidor'.$e->getMessage());
+            }
+        }
+
     }
 ?>

@@ -97,5 +97,11 @@
                 return $this->failServerError('Ha ocurrido un error en el servidor');
             }
         }
+
+        //Servicio que retorna el nombre apellido de los estudiantes 
+        public function estudiantes(){
+            $estudiantes = $this->model->estudiantes();
+            return $this->respond($estudiantes);
+        }
     }
 ?>

@@ -96,5 +96,16 @@
         ];
 
         protected $skipValidation = false;
+
+        public function estudiantes(){
+            $builder = $this->db->table($this->table.' e');
+
+            $builder->select('e.IdEstudiante, CONCAT(e.PrimerNombre, " ", e.SegundoNombre) Nombre');
+            $builder->select('CONCAT(e.PrimerApellido, " ", e.SegundoApellido) Apellido');
+
+            $query = $builder->get();
+
+            return $query->getResult();
+        }
     }
 ?>

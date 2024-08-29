@@ -90,27 +90,6 @@ class Cursos extends ResourceController
         }
     }
 
-    //Listado de estudiantes del curso
-    public function getListByCourse($id = null) {
-        try{
-            $modelCurso = new CursosModel();
-            if($id == null){
-                return $this->failValidationError('No se ha recibido un ID valido');
-            }
-            $curso = $modelCurso->find($id);
-            if($curso == null){
-                return $this->failNotFound('No se ha encontrado un curso con el Id: '.$id);
-            }
-            
-            $estudiantes = $this->model->listByCourse($id);
-
-            return $this->respond($estudiantes);
-        }
-        catch(Exception $e){
-            return $this->failServerError('Ha ocurrido un error en el servidor'.$e->getMessage());
-        }
-    }
-
     //Tutor asignado al curso
     public function getTutor($id = null) {
         try{

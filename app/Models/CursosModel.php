@@ -49,22 +49,6 @@ class CursosModel extends Model
 
     protected $skipValidation = false;
 
-    public function listByCourse($cursoID = null){
-
-        $builder = $this->db->table($this->table);
-
-        $builder->select('estudiantes.IdEstudiante, estudiantes.PrimerNombre, estudiantes.SegundoNombre');
-        $builder->select('estudiantes.PrimerApellido, estudiantes.SegundoApellido');
-
-        $builder->join('estudiantes_cursos', 'cursos.IdCurso = estudiantes_cursos.IdCurso');
-        $builder->join('estudiantes', 'estudiantes.IdEstudiante = estudiantes_cursos.IdEstudiante');
-
-        $builder->where('cursos.IdCurso',$cursoID);
-
-        $query = $builder->get();
-
-        return $query->getResult();
-    }
 
     public function tutor($cursoID = null){
 

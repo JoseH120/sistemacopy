@@ -12,6 +12,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //URI PARA CONTROLADO DE ESTUDIANTES
    //http://localhost/sistema/api/estudiantes
    $routes->get('estudiantes', 'Estudiantes::index');
+   $routes->get('estudiantes/estudiantes', 'Estudiantes::estudiantes');
 
    //http://localhost/sistema/api/estudiantes/create
    $routes->post('estudiantes/create', 'Estudiantes::create');
@@ -76,6 +77,12 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/estudiantescursos/delete/
    $routes->delete('estudiantescursos/delete/(:num)', 'EstudiantesCursos::delete/$1');
 
+   //http://localhost/sistema/api/estudiantescursos/getCursosByEstudiante/
+   $routes->get('estudiantescursos/getCursosByEstudiante/(:num)', 'EstudiantesCursos::getCursosByEstudiante/$1');
+
+   //ListarEstudiantes del Curso
+   //http://localhost/sistema/api/estudiantescursos/getListbycourse/
+   $routes->get('estudiantescursos/getListbycourse/(:num)', 'EstudiantesCursos::getListByCourse/$1');
 
    //URI PARA CONTROLADO DE ACTIVIDADES
    //http://localhost/sistema/api/actividades/
@@ -127,10 +134,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    //http://localhost/sistema/api/actividadesestudiantes/delete/
    $routes->delete('actividadesestudiantes/delete/(:num)', 'ActividadesEstudiantes::delete/$1');
-
-   //ListarEstudiantes delCurso
-   //http://localhost/sistema/api/cursos/getlistbycourse/
-   $routes->get('cursos/getlistbycourse/(:num)', 'Cursos::getListByCourse/$1');
 
    //http://localhost/sistema/api/cursos/gettutor/
    $routes->get('cursos/gettutor/(:num)', 'Cursos::getTutor/$1');
