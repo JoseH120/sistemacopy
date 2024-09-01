@@ -140,7 +140,7 @@ class Usuarios extends ResourceController
 
             $data = [
                 'IdUsuario' =>  $this->request->getVar('idusuario'),
-                'Usuario' => $this->request->getVar('usuario'),
+                'usuario' => $this->request->getVar('usuario'),
                 'email' => $this->request->getVar('email'),
                 'clave' => $this->request->getVar('clave'),
             ];
