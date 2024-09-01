@@ -116,4 +116,39 @@ class Usuarios extends ResourceController
         $body = $respond->getResponseBody();
         return $this->respond(json_decode($body), $code);
     }
+
+    public function register()
+    {
+        helper('form');
+        $data = [];
+
+        if ($this->request->getMethod() != 'post') {
+            return $this->fail('Only post request is allowed');
+        }
+
+        $rules = [
+            'usuario' => ['rules' => 'required|min_length[3]|max_length[20]', 'label' => 'Usuario'],
+            'email' => 'required|valid_email|is_unique[usuarios.email]',
+            'clave' => 'required|min_length[8]',
+            'clave_confirm' => 'matches[clave]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return $this->fail(implode('<br>', $this->validator->getErrors()));
+        } else {
+            $model = new UsuariosModel();
+
+            $data = [
+                'IdUsuario' =>  $this->request->getVar('idusuario'),
+                'Usuario' => $this->request->getVar('usuario'),
+                'email' => $this->request->getVar('email'),
+                'clave' => $this->request->getVar('clave'),
+            ];
+
+            $user_id = $model->insert($data);
+            $data['IdUsuario'] = $user_id;
+            unset($data['clave']);
+            return $this->respondCreated($data);
+        }
+    }
 }

@@ -97,8 +97,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/usuarios/
    $routes->get('usuarios', 'Usuarios::index');
 
-   //http://localhost/sistema/api/usuarios/create
-   $routes->post('usuarios/create', 'Usuarios::create');
+   // //http://localhost/sistema/api/usuarios/create
+   // $routes->post('usuarios/create', 'Usuarios::create');
 
    //http://localhost/sistema/api/usuarios/edit/
    $routes->get('usuarios/edit/(:num)', 'Usuarios::edit/$1');
@@ -112,7 +112,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/usuarios/login
    $routes->post('usuarios/login', 'Usuarios::login');
    //http://localhost/sistema/api/usuarios/create
-   //$routes->post('usuarios/create', 'Usuarios::create');
+   $routes->post('usuarios/register', 'Usuarios::register');
 
    //URI PARA CONTROLADO DE ACTIVIDADES ESTUDIANTES
    //http://localhost/sistema/api/actividadesestudiantes/
