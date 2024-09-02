@@ -24,6 +24,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'oauthfilter' => \App\Filters\OauthFilter::class,
+        'options' =>  \App\Filters\Options::class,
     ];
 
     /**
@@ -38,6 +40,7 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            'options'
         ],
         'after' => [
             'toolbar',
@@ -66,5 +69,27 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'oauthfilter' => [
+            'before' => [
+                'blog',
+                'blog/*',
+                // 'API/usuarios/register',
+                // 'API/usuarios/index',
+                // // 'API/usuarios/',
+                // 'API/tutores',
+                // 'API/tutores/*',
+                // 'API/estudiantes',
+                // 'API/estudiantes/*',
+                // 'API/cursos',
+                // 'API/cursos/*',
+                // 'API/estudiantescursos/',
+                // 'API/estudiantescursos/*',
+                // 'API/actividades/',
+                // 'API/actividades/*',
+                // 'API/actividadesestudiantes/',
+                // 'API/actividadesestudiantes/*',
+            ]
+        ],
+    ];
 }

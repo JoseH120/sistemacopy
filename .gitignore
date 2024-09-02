@@ -84,7 +84,12 @@ tests/coverage*
 #-------------------------
 # Composer
 #-------------------------
+<<<<<<< HEAD
 vendor
+=======
+vendor/
+vendor/**/*.php
+>>>>>>> loginfeature
 composer.lock
 
 #-------------------------
