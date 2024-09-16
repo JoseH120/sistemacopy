@@ -98,7 +98,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->get('usuarios', 'Usuarios::index');
 
    // //http://localhost/sistema/api/usuarios/create
-   // $routes->post('usuarios/create', 'Usuarios::create');
+   $routes->post('usuarios/create', 'Usuarios::create');
 
    //http://localhost/sistema/api/usuarios/edit/
    $routes->get('usuarios/edit/(:num)', 'Usuarios::edit/$1');
