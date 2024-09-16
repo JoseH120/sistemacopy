@@ -142,6 +142,7 @@ class Usuarios extends ResourceController
             $usuario = $this->request->getJSON();
             if ($this->model->insert($usuario)) {
                 $usuario->IdUsuario = $this->model->insertID();
+                unset($usuario->clave);
                 return $this->respondCreated($usuario);
             } else {
                 return $this->failValidationError($this->model->validation->listErrors());
@@ -163,6 +164,8 @@ class Usuarios extends ResourceController
             if ($usuario == null) {
                 return $this->failNotFound("No se ha encontrado un registro con el id " . $id . " enviado");
             }
+            // unset($usuario->clave);
+            // unset($usuario->clave, $usuario->created_at, $usuario->update_at);
             return $this->respond($usuario);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -180,6 +183,7 @@ class Usuarios extends ResourceController
                 return $this->failValidationError("No se ha encontrado un registro con el ID " . $id . " enviado");
             }
             $data = $this->request->getJSON();
+			$data['usuario'] = $this->request->getJsonVar('usuario');
             if ($this->model->update($id, $data)) {
                 $data->IdUsuario = $id;
                 return $this->respondUpdated($data);
@@ -227,6 +231,7 @@ class Usuarios extends ResourceController
         $rules = [
             'usuario' => ['rules' => 'required|min_length[3]|max_length[20]', 'label' => 'Usuario'],
             'email' => 'required|valid_email|is_unique[usuarios.email]',
+            'tipo' => 'required',
             'clave' => 'required|min_length[8]',
             'clave_confirm' => 'matches[clave]',
         ];
