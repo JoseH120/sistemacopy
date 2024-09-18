@@ -56,7 +56,7 @@ class UsuariosModel extends Model
     protected function beforeUpdate(array $data)
     {
         $data = $this->passwordHash($data);
-        // return $data;
+        return $data;
     }
 
     protected function passwordHash(array $data)

@@ -5,6 +5,7 @@ namespace App\Controllers\API;
 use App\Libraries\Oauth;
 use App\Models\UsuariosModel;
 use CodeIgniter\API\ResponseTrait;
+use CodeIgniter\HTTP\Message;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
 use OAuth2\Request;
@@ -54,8 +55,6 @@ class Usuarios extends ResourceController
             if ($usuario == null) {
                 return $this->failNotFound("No se ha encontrado un registro con el id " . $id . " enviado");
             }
-            // unset($usuario->clave);
-            // unset($usuario->clave, $usuario->created_at, $usuario->update_at);
             return $this->respond($usuario);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -64,16 +63,17 @@ class Usuarios extends ResourceController
 
     public function update($id = null)
     {
+
+        if ($id == null) {
+            return $this->failValidationError("No se ha enviado un ID valido.");
+        }
+        $usuarioVerificado = $this->model->find($id);
+        if ($usuarioVerificado == null) {
+            return $this->failValidationError("No se ha encontrado un registro con el ID " . $id . " enviado");
+        }
+        $data = $this->request->getJSON();
         try {
-            if ($id == null) {
-                return $this->failValidationError("No se ha enviado un ID valido.");
-            }
-            $usuario = $this->model->find($id);
-            if ($usuario == null) {
-                return $this->failValidationError("No se ha encontrado un registro con el ID " . $id . " enviado");
-            }
-            $data = $this->request->getJSON();
-            $data['usuario'] = $this->request->getJsonVar('usuario');
+            // echo ($data);
             if ($this->model->update($id, $data)) {
                 $data->IdUsuario = $id;
                 return $this->respondUpdated($data);
@@ -81,7 +81,8 @@ class Usuarios extends ResourceController
                 return $this->failValidationError($this->model->validation->listErrors());
             }
         } catch (Exception $e) {
-            return $this->failServerError("Ha ocurrido un error en el servidor.");;
+            return $this->failServerError("Ha ocurrido un error en el servidor.");
+            // return $this->failValidationError($this->model->validation->listErrors());
         }
     }
 
