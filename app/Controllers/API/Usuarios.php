@@ -99,6 +99,11 @@ class Usuarios extends ResourceController
         }
     }
 
+    public function getUsuariosNoAsignados(){
+        $usuarios = $this->model->usuariosNoAsignados();
+        return $this->respond($usuarios);   
+    }
+
     //AGREGANDO LOGIN FUNCTION
     public function login()
     {
