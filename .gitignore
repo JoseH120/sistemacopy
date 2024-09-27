@@ -84,12 +84,7 @@ tests/coverage*
 #-------------------------
 # Composer
 #-------------------------
-<<<<<<< HEAD
 vendor
-=======
-vendor/
-vendor/**/*.php
->>>>>>> loginfeature
 composer.lock
 
 #-------------------------
@@ -132,3 +127,4 @@ nb-configuration.xml
 /phpunit*.xml
 
 /.php-cs-fixer.php
+
