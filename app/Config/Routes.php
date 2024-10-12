@@ -122,6 +122,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/usuarios/login/
    $routes->post('usuarios/login', 'Usuarios::login');
 
+   // http://localhost/sistema/api/usuarios/obtener
+   $routes->post('usuarios/obtener', 'Usuarios::obtenerUsuario');
 
    //URI PARA CONTROLADO DE ACTIVIDADES ESTUDIANTES
    //http://localhost/sistema/api/actividadesestudiantes/

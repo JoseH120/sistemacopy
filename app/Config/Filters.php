@@ -80,6 +80,7 @@ class Filters extends BaseConfig
                 'API/usuarios/edit/*',
                 'API/usuarios/update/*',
                 'API/usuarios/delete/*',
+                // 'API/usuarios/obtener'
                 // 'API/tutores',
                 // 'API/tutores/*',
                 // 'API/estudiantes',
