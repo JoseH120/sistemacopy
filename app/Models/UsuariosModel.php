@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\Database\MySQLi\Builder;
 use CodeIgniter\Model;
 
 class UsuariosModel extends Model
@@ -85,5 +86,14 @@ class UsuariosModel extends Model
         $query = $builder->get();
 
         return $query->getResult();
+    }
+
+    public function getUsuarioByEmail($email)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('IdUsuario');
+        $builder->where('email', $email);
+        $query = $builder->get();
+        return $query->getRow();
     }
 }
