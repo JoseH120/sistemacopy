@@ -67,10 +67,20 @@ class UsuariosModel extends Model
         return $data;
     }
 
-    public function usuariosNoAsignados(){
+    public function usuariosNoAsignadosEstudiante(){
         $builder = $this->db->table($this->table);
         $builder->select('IdUsuario, Usuario, Tipo');
-        $builder->where('IdUsuario NOT IN (SELECT idusuario FROM tutores)');
+        $builder->where('Tipo = "ESTUDIANTE" and IdUsuario NOT IN (SELECT idusuario FROM estudiantes)');
+
+        $query = $builder->get();
+
+        return $query->getResult();
+    }
+
+    public function usuariosNoAsignadosTutor(){
+        $builder = $this->db->table($this->table);
+        $builder->select('IdUsuario, Usuario, Tipo');
+        $builder->where('Tipo = "TUTOR" and IdUsuario NOT IN (SELECT idusuario FROM tutores)');
 
         $query = $builder->get();
 

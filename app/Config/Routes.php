@@ -104,8 +104,11 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/usuarios/
    $routes->get('usuarios', 'Usuarios::index');
 
-   ///http://localhost/sistema/api/usuarios/getUsuariosNoAsignados
-   $routes->get('usuarios/getUsuariosNoAsignados', 'Usuarios::getUsuariosNoAsignados');
+   ///http://localhost/sistema/api/usuarios/getUsuariosNoAsignadosEstudiante
+   $routes->get('usuarios/getUsuariosNoAsignadosEstudiante', 'Usuarios::getUsuariosNoAsignadosEstudiante');
+
+   ///http://localhost/sistema/api/usuarios/getUsuariosNoAsignadosTutor
+   $routes->get('usuarios/getUsuariosNoAsignadosTutor', 'Usuarios::getUsuariosNoAsignadosTutor');
 
    // //http://localhost/sistema/api/usuarios/create
    $routes->post('usuarios/create', 'Usuarios::create');

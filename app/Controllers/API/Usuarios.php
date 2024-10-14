@@ -99,8 +99,13 @@ class Usuarios extends ResourceController
         }
     }
 
-    public function getUsuariosNoAsignados(){
-        $usuarios = $this->model->usuariosNoAsignados();
+    public function getUsuariosNoAsignadosEstudiante(){
+        $usuarios = $this->model->usuariosNoAsignadosEstudiante();
+        return $this->respond($usuarios);   
+    }
+
+    public function getUsuariosNoAsignadosTutor(){
+        $usuarios = $this->model->usuariosNoAsignadosTutor();
         return $this->respond($usuarios);   
     }
 
