@@ -68,7 +68,8 @@ class UsuariosModel extends Model
         return $data;
     }
 
-    public function usuariosNoAsignadosEstudiante(){
+    public function usuariosNoAsignadosEstudiante()
+    {
         $builder = $this->db->table($this->table);
         $builder->select('IdUsuario, Usuario, Tipo');
         $builder->where('Tipo = "ESTUDIANTE" and IdUsuario NOT IN (SELECT idusuario FROM estudiantes)');
@@ -78,7 +79,8 @@ class UsuariosModel extends Model
         return $query->getResult();
     }
 
-    public function usuariosNoAsignadosTutor(){
+    public function usuariosNoAsignadosTutor()
+    {
         $builder = $this->db->table($this->table);
         $builder->select('IdUsuario, Usuario, Tipo');
         $builder->where('Tipo = "TUTOR" and IdUsuario NOT IN (SELECT idusuario FROM tutores)');
@@ -91,9 +93,9 @@ class UsuariosModel extends Model
     public function getUsuarioByEmail($email)
     {
         $builder = $this->db->table($this->table);
-        $builder->select('IdUsuario');
+        $builder->select('idusuario, usuario, tipo');
         $builder->where('email', $email);
         $query = $builder->get();
-        return $query->getRow();
+        return $query->getRowObject();
     }
 }
