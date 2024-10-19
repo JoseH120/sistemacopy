@@ -51,5 +51,14 @@ class ActividadesModel extends Model
         ]
     ];
 
+    public function getActividadesByCurso($idCurso)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('IdActividad, Tema, Descripcion, UrlRecurso');
+        $builder->where('IdCurso', $idCurso);
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
     protected $skipValidation = false;
 }

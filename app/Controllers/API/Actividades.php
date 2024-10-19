@@ -96,4 +96,19 @@
                 return $this->failServerError('Ha ocurrido un error en el servidor');
             }
         }
+
+        public function actividadesByCurso($idCurso){
+            try {
+                if($idCurso == null){
+                    return $this->failValidationErrors('No se ha enviado un id valido');
+                }
+                $actividades = $this->model->getActividadesByCurso($idCurso);
+                if($actividades == null){
+                    return $this->failNotFound('No se ha encorntrado actividades con el ID CURSO: '.$id. ' enviado');
+                }
+                return $this->respond($actividades);
+            } catch (Exception $e) {
+                return $this->failServerError('Ha ocurrido un error en el servidor');
+            }
+        }
     }

@@ -100,6 +100,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/actividades/delete/
    $routes->delete('actividades/delete/(:num)', 'Actividades::delete/$1');
 
+   $routes->get('actividades/actividadesByCurso/(:num)', 'Actividades::actividadesByCurso/$1');
+
    //URI PARA CONTROLADO DE USUARIOS
    //http://localhost/sistema/api/usuarios/
    $routes->get('usuarios', 'Usuarios::index');
