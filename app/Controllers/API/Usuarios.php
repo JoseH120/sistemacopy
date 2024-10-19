@@ -9,6 +9,8 @@ use CodeIgniter\HTTP\Message;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
 use OAuth2\Request;
+use Predis\Command\Argument\Search\ExplainArguments;
+use SebastianBergmann\CodeUnit\CodeUnit;
 
 class Usuarios extends ResourceController
 {
@@ -99,14 +101,16 @@ class Usuarios extends ResourceController
         }
     }
 
-    public function getUsuariosNoAsignadosEstudiante(){
+    public function getUsuariosNoAsignadosEstudiante()
+    {
         $usuarios = $this->model->usuariosNoAsignadosEstudiante();
-        return $this->respond($usuarios);   
+        return $this->respond($usuarios);
     }
 
-    public function getUsuariosNoAsignadosTutor(){
+    public function getUsuariosNoAsignadosTutor()
+    {
         $usuarios = $this->model->usuariosNoAsignadosTutor();
-        return $this->respond($usuarios);   
+        return $this->respond($usuarios);
     }
 
     //AGREGANDO LOGIN FUNCTION
@@ -117,17 +121,18 @@ class Usuarios extends ResourceController
         $respond = $oauth->server->handleTokenRequest($request->createFromGlobals());
         $code = $respond->getStatusCode();
         $body = $respond->getResponseBody();
-        return $this->respond(json_decode($body), $code);
-    }
-
-    public function obtenerUsuario()
-    {
-        try {
-            $email = $this->request->getJsonVar('email');
+        //AGREGANDO DATOS DEL USUARIO LOGEADO POR MEDIO DEL CORREO DEL USUARIO
+        if ($code === 200 || $code === 201) {
+            $email = $this->request->getPost("username");
             $usuario = $this->model->getUsuarioByEmail($email);
-            return $this->respond($usuario);
-        } catch (Exception $e) {
-            return $e->getMessage();
+            //CONVIERTIENDO EL OBJECTO BODY A UN ARRAY MEDIANTE LA FUNCION JSON-DECODE
+            $body = json_decode($body);
+            //CONCATENANDO LOS ARRAYS PARA ENVIAR UN SOLO RESULTADO
+            $final = array_merge((array)$body, (array)$usuario);
+            //ENVIANDO EL TOKEN CON LOS DATOS DEL USUARIO
+            return $this->respond($final, $code);
+        } else {
+            return $this->respond(json_decode($body), $code);
         }
     }
 }
