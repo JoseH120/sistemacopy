@@ -66,5 +66,19 @@ class CursosModel extends Model
         return $query->getResult();
     }
 
+    public function getCursosByTutor($id = null)
+    {
+        if($id == null){
+            return null;
+        }
+        $builder = $this->db->table($this->table.' c');
+
+        $builder->select('c.IdCurso, c.NombreCurso, c.Descripcion, c.Grupo');
+        $builder->where('c.IdTutor', $id);
+
+        $query = $builder->get();
+
+        return $query->getResult();
+    }
     
 }
