@@ -153,4 +153,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->get('estudiantes/getEstudiante/(:num)', 'Estudiantes::getEstudiante/$1');
    //GET TUTOR INFO
    $routes->get('tutores/getTutor/(:num)', 'Tutores::getTutor/$1');
+
+   //http://localhost/sistema/api/cursos/CursosByTutor/
+   $routes->get('cursos/CursosByTutor/(:num)', 'Cursos::CursosByTutor/$1');
 });

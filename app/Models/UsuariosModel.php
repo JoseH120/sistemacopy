@@ -24,27 +24,28 @@ class UsuariosModel extends Model
     protected $beforeUpdate = ['beforeUpdate'];
 
     protected $validationRules = [
-        "usuario" => 'required|max_length[20]|min_length[10]',
+        "usuario" => 'required|max_length[30]|min_length[10]',
         "email" => 'required|valid_email|is_unique[usuarios.email]',
         "clave" => 'required|max_length[255]|min_length[8]',
         "tipo" => 'required',
     ];
     protected $validationMessages = [
         'usuario' => [
-            'required' => 'El valor es requerido',
-            'max_length' => 'Debe tener 30 caracteres como maximo'
+            'required' => 'El valor usuario es requerido',
+            'max_length' => 'Usuario debe tener 30 caracteres como maximo',
+            'min_length' => 'Usuario debe tener 10 caracteres como minimo'
         ],
         'email' => [
-            'required' => 'El valor es requerido',
+            'required' => 'El valor email es requerido',
             'is_unique' => 'El email ya esta registrado',
         ],
         'clave' => [
-            'required' => 'El valor es requerido',
-            'min_length' => 'Debe contener al menos 8 caracteres',
-            'max_length' => 'Debe contener menos que 255 caracteres'
+            'required' => 'El valor clave es requerido',
+            'min_length' => 'Clave debe contener al menos 8 caracteres',
+            'max_length' => 'Clave debe contener menos que 255 caracteres'
         ],
         'tipo' => [
-            'required' => 'El valor es requerido'
+            'required' => 'El valor tipo es requerido'
         ]
     ];
 

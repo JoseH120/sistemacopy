@@ -110,5 +110,21 @@ class Cursos extends ResourceController
             return $this->failServerError('Ha ocurrido un error en el servidor'.$e->getMessage());
         }
     }
+
+    //Listado de los cursos de un tutor
+    public function CursosByTutor($id = null)
+    {
+        try{
+            if($id == null){
+                return $this->failValidationError('No se ha recibido un ID valido');
+            }
+            $curso = $this->model->getCursosByTutor($id);
+
+            return $this->respond($curso);
+        }
+        catch(Exception $e){
+            return $this->failServerError('Ha ocurrido un error en el servidor'.$e->getMessage());
+        }
+    }
     
 }
