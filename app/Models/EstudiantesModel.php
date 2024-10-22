@@ -111,12 +111,18 @@ class EstudiantesModel extends Model
     public function estudiantes()
     {
         $builder = $this->db->table($this->table . ' e');
-
         $builder->select('e.IdEstudiante, CONCAT(e.PrimerNombre, " ", e.SegundoNombre) Nombre');
         $builder->select('CONCAT(e.PrimerApellido, " ", e.SegundoApellido) Apellido');
-
         $query = $builder->get();
-
         return $query->getResult();
+    }
+
+    public function getEstudiante($id)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('idestudiante');
+        $builder->where('idusuario', $id);
+        $query = $builder->get();
+        return $query->getRowObject();
     }
 }

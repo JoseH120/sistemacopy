@@ -84,6 +84,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/estudiantescursos/getListbycourse/
    $routes->get('estudiantescursos/getListbycourse/(:num)', 'EstudiantesCursos::getListByCourse/$1');
 
+
    //URI PARA CONTROLADO DE ACTIVIDADES
    //http://localhost/sistema/api/actividades/
    $routes->get('actividades', 'Actividades::index');
@@ -145,4 +146,11 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    //http://localhost/sistema/api/cursos/gettutor/
    $routes->get('cursos/gettutor/(:num)', 'Cursos::getTutor/$1');
+
+
+   //VALIDANDO INFORMACION DE USUARIO SEGUN ID para el caso ESTUDIANTES O TUTORES
+   //GET ESTUDIANTE INFO
+   $routes->get('estudiantes/getEstudiante/(:num)', 'Estudiantes::getEstudiante/$1');
+   //GET TUTOR INFO
+   $routes->get('tutores/getTutor/(:num)', 'Tutores::getTutor/$1');
 });
