@@ -100,14 +100,14 @@ class Estudiantes extends ResourceController
     }
 
     //Servicio que retorna el nombre apellido de los estudiantes 
-    public function estudiantes()
+    public function estudiantes($id = null)
     {
-        $estudiantes = $this->model->estudiantes();
+        $estudiantes = $this->model->estudiantes($id);
         return $this->respond($estudiantes);
     }
 
     //Servicio que retorna la informacion de usuario de tipo  estudiante
-    public function getEstudiante($id)
+    public function getEstudiante($id = null)
     {
         return $this->respond($this->model->getEstudiante($id));
     }

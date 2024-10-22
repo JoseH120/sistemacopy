@@ -41,7 +41,7 @@
 
             $builder = $this->db->table($this->table.' ec');
 
-            $builder->select('ec.IdCurso, c.NombreCurso, t.IdTutor, CONCAT(t.Nombre, " ", T.Apellido) Nombre, c.Descripcion');
+            $builder->select('ec.IdCurso, c.NombreCurso, t.IdTutor, CONCAT(t.Nombre, " ", T.Apellido) Nombre, c.Descripcion, c.Grupo');
             
             $builder->join('estudiantes e', 'ec.IdEstudiante = e.IdEstudiante');
             $builder->join('cursos c', 'ec.IdCurso = c.IdCurso ');

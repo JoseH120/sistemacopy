@@ -12,7 +12,9 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //URI PARA CONTROLADO DE ESTUDIANTES
    //http://localhost/sistema/api/estudiantes
    $routes->get('estudiantes', 'Estudiantes::index');
-   $routes->get('estudiantes/estudiantes', 'Estudiantes::estudiantes');
+
+   //http://localhost/sistema/api/estudiantes/estudiantes/
+   $routes->get('estudiantes/estudiantes/(:num)', 'Estudiantes::estudiantes/$1');
 
    //http://localhost/sistema/api/estudiantes/create
    $routes->post('estudiantes/create', 'Estudiantes::create');
