@@ -20,12 +20,33 @@
 
         //servicio de insertar
         public function create (){
+            $nombre = $_FILES['UrlRecurso']['name'];
+            $tipo = $_FILES['UrlRecurso']['type'];
+            $size =  $_FILES['UrlRecurso']['size'];
+            $temporal = $_FILES['UrlRecurso']['tmp_name'];
+
+            $Tema = $this->request->getVar('Tema');
+            $Descripcion = $this->request->getVar('Descripcion');
+            $IdCurso = $this->request->getVar('IdCurso');
+            
+            $TemaCarpeta = str_replace(" ", "", $Tema);
+            $nombre = str_replace(" ", "", $nombre);
+            $UrlRecurso = "http://localhost/sistema/uploads/actividades/".$IdCurso."/".$TemaCarpeta."/".$nombre;
+                    
+
+            $data = array('Tema' => $Tema , 'Descripcion' => $Descripcion, 
+                'IdCurso' => $IdCurso, 'UrlRecurso' => $UrlRecurso);
+            
+
             try{
-                $actividades = $this->request->getJSON();
-                if($this->model->insert($actividades)){
-                    $actividades->IdActividad = $this->model->insertID();
-                    return $this->respondCreated($actividades);
-                }
+                if($this->model->insert($data)){
+                    $actividad = json_encode($data, JSON_PRETTY_PRINT);
+                    $IdActividad = $this->model->insertID();
+                    if($this->crear($temporal, $nombre, $IdCurso, $TemaCarpeta)) 
+                        return $this->respondCreated($actividad);
+                    else
+                        return $this->failServerError('Ha ocurrido un error en el servidor.');                    
+                }   
                 else{
                     return $this->failValidationError($this->model->validation->listErrors());
                 }
@@ -48,7 +69,7 @@
                 return $this->respond($actividad);
             } catch (Exception $e) {
                 return $this->failServerError('Ha ocurrido un error en el servidor');
-            }
+            } 
         }
 
         //Servicio de actualizar un registro
@@ -87,13 +108,18 @@
                 }
                 
                 if($this->model->delete($id)){
+                    $TemaCarpeta = str_replace(" ", "", $actividadVerificada['Tema']);    
+                    $directorio = "uploads/actividades/".$actividadVerificada['IdCurso']."/".$TemaCarpeta; 
+                    $file = substr($actividadVerificada['UrlRecurso'], 25, strlen($actividadVerificada['UrlRecurso']));
+                    unlink($file);
+                    rmdir($directorio);
                     return $this->respondDeleted($actividadVerificada);
                 }
                 else{
                     return $this->failValidationError('No se ha podido eliminar el registro');
                 }
             } catch (Exception $e) {
-                return $this->failServerError('Ha ocurrido un error en el servidor');
+                return $this->failServerError('Ha ocurrido un error en el servidor '.$e);
             }
         }
 
@@ -109,6 +135,29 @@
                 return $this->respond($actividades);
             } catch (Exception $e) {
                 return $this->failServerError('Ha ocurrido un error en el servidor');
+            }
+        }
+
+        private function crear($temporal, $nombre, $IdCurso, $Tema){
+            $pathRelativa = 'uploads/actividades/'.$IdCurso."/".$Tema;
+            if(!file_exists($pathRelativa)){
+                mkdir($pathRelativa, 0777, true);
+                if(file_exists($pathRelativa)){
+                    if(move_uploaded_file($temporal, $pathRelativa.'/'.$nombre)){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+            else{
+                if(move_uploaded_file($temporal, $pathRelativa.'/'.$nombre)){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
         }
     }
