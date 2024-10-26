@@ -128,3 +128,6 @@ nb-configuration.xml
 
 /.php-cs-fixer.php
 
+
+#IGNORE THIS FOLDER
+uploads
