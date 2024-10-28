@@ -12,7 +12,7 @@
         protected $createdField = 'created_at';
         protected $updatedField = 'updated_at';
         protected $validationRules = [
-            'Nota' => 'permit_empty|numeric|less_than[11]|greater_than[0]',
+            'Nota' => 'permit_empty|numeric|less_than[11]|greater_than[-1]',
             'UrlTarea' => 'required|min_length[3]|max_length[600]',
             'IdActividad' => 'required|numeric|is_valid_actividad',
             'IdEstudiante' => 'required|numeric|is_valid_estudiante'
@@ -22,7 +22,7 @@
             'Nota' => [
                 'numeric' => 'Debe ingresar un valor numerico para el campo nota',
                 'less_than' => 'La nota debe ser menor o igual a 10',
-                'greater_than' => 'La nota debe ser mayor o igual a 1'
+                'greater_than' => 'La nota debe ser mayor o igual a 0'
             ],
             'UrlTarea' => [
                 'required' => 'El valor es requerido',

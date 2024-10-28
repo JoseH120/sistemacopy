@@ -41,7 +41,6 @@
             try{
                 if($this->model->insert($data)){
                     $actividad = json_encode($data, JSON_PRETTY_PRINT);
-                    $IdActividad = $this->model->insertID();
                     if($this->crear($temporal, $nombre, $IdCurso, $TemaCarpeta)) 
                         return $this->respondCreated($actividad);
                     else
@@ -75,6 +74,23 @@
         //Servicio de actualizar un registro
         public function update($id = null){
             try {
+                $nombre = $_FILES["UrlRecurso"]["name"];
+                $tipo = $_FILES['UrlRecurso']['type'];
+                $size =  $_FILES['UrlRecurso']['size'];
+                $temporal = $_FILES['UrlRecurso']['tmp_name'];
+                   
+                $Tema = $this->request->getVar('Tema');
+                $Descripcion = $this->request->getVar('Descripcion');
+                $IdCurso = $this->request->getVar('IdCurso');
+            
+                $TemaCarpeta = str_replace(" ", "", $Tema);
+                $nombre = str_replace(" ", "", $nombre);
+                $UrlRecurso = "http://localhost/sistema/uploads/actividades/".$IdCurso."/".$TemaCarpeta."/".$nombre;
+                    
+
+                $data = array('Tema' => $Tema , 'Descripcion' => $Descripcion, 
+                'IdCurso' => $IdCurso, 'UrlRecurso' => $UrlRecurso);
+                   
                 if($id == null){
                     return $this->failValidationError('No se ha enviado un id valido');
                 }
@@ -82,17 +98,26 @@
                 if($actividadVerificado == null){
                     return $this->failNotFound('No se ha encorntrado un registro con el ID: '.$id. ' enviado');
                 }
-                $actividad = $this->request->getJSON();
-
-                if($this->model->update($id, $actividad)){
-                    $actividad->IdActividad = $id;
-                    return $this->respondUpdated($actividad);
+                $TemaCarpetaOld = str_replace(" ", "", $actividadVerificado['Tema']);
+                $directorio = "uploads/actividades/".$actividadVerificado['IdCurso']."/".$TemaCarpetaOld;
+                    
+                if($this->model->update($id, $data)){                    
+                    $file = substr($actividadVerificado['UrlRecurso'], 25, strlen($actividadVerificado['UrlRecurso']));
+                    unlink($file);
+                    rmdir($directorio);
+                    if($this->crear($temporal, $nombre, $IdCurso, $TemaCarpeta)){
+                        $actividad = json_encode($data, JSON_PRETTY_PRINT);
+                        return $this->respondUpdated($actividad);
+                    }
+                    else{
+                        return $this->failServerError('Ha ocurrido un error en el servidor.'); 
+                    }     
                 }
                 else{
                     return $this->failValidationError($this->model->validation->listErrors());
-                }
+                }                
             } catch (Exception $e) {
-                return $this->failServerError('Ha ocurrido un error en el servidor');
+                return $this->failServerError('Ha ocurrido un error en el servidor ');
             }
         }
 

@@ -19,11 +19,28 @@
 
         //servicio de insertar
         public function create (){
+            $nombre = $_FILES['UrlTarea']['name'];
+            $tipo = $_FILES['UrlTarea']['type'];
+            $size =  $_FILES['UrlTarea']['size'];
+            $temporal = $_FILES['UrlTarea']['tmp_name'];
+
+            $Nota = $this->request->getVar('Nota');
+            $IdActividad = $this->request->getVar('IdActividad');
+            $IdEstudiante = $this->request->getVar('IdEstudiante');
+            $nombre = str_replace(" ", "", $nombre);
+
+            $UrlTarea = "http://localhost/sistema/uploads/tareas/".$IdActividad."/".$IdEstudiante."/".$nombre;
+
+            $data = array('Nota' => $Nota , 'IdActividad' => $IdActividad, 
+                'IdEstudiante' => $IdEstudiante, 'UrlTarea' => $UrlTarea);
+
             try{
-                $actividadesEstudiantes = $this->request->getJSON();
-                if($this->model->insert($actividadesEstudiantes)){
-                    $actividadesEstudiantes->Idactividad_estudiante = $this->model->insertID();
-                    return $this->respondCreated($actividadesEstudiantes);
+                if($this->model->insert($data)){
+                    $actividadesEstudiantes = json_encode($data, JSON_PRETTY_PRINT);
+                    if($this->crear($temporal, $nombre, $IdActividad, $IdEstudiante)) 
+                        return $this->respondCreated($actividadesEstudiantes);
+                    else
+                        return $this->failServerError('Ha ocurrido un error en el servidor.');
                 }
                 else{
                     return $this->failValidationError($this->model->validation->listErrors());
@@ -93,6 +110,29 @@
                 }
             } catch (Exception $e) {
                 return $this->failServerError('Ha ocurrido un error en el servidor');
+            }
+        }
+
+        private function crear($temporal, $nombre, $IdActividad, $IdEstudiante){
+            $pathRelativa = "uploads/tareas/".$IdActividad."/".$IdEstudiante;
+            if(!file_exists($pathRelativa)){
+                mkdir($pathRelativa, 0777, true);
+                if(file_exists($pathRelativa)){
+                    if(move_uploaded_file($temporal, $pathRelativa.'/'.$nombre)){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+            else{
+                if(move_uploaded_file($temporal, $pathRelativa.'/'.$nombre)){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
         }
     }

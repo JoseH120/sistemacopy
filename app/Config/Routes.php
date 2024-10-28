@@ -98,7 +98,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->get('actividades/edit/(:num)', 'Actividades::edit/$1');
 
    //http://localhost/sistema/api/actividades/update/
-   $routes->put('actividades/update/(:num)', 'Actividades::update/$1');
+   $routes->post('actividades/update/(:num)', 'Actividades::update/$1');
 
    //http://localhost/sistema/api/actividades/delete/
    $routes->delete('actividades/delete/(:num)', 'Actividades::delete/$1');
