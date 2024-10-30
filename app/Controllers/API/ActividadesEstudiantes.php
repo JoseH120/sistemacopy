@@ -112,7 +112,20 @@
                 return $this->failServerError('Ha ocurrido un error en el servidor');
             }
         }
+        public function tareasByActividad($id = null){
+            try{
+                if($id == null){
+                    return $this->failValidationError('No se ha recibido un ID valido');
+                }
+                $AE = $this->model->getTareasByActividad($id);
+    
+                return $this->respond($AE);
+            }
+            catch(Exception $e){
+                return $this->failServerError('Ha ocurrido un error en el servidor'.$e->getMessage());
+            }
 
+        }
         private function crear($temporal, $nombre, $IdActividad, $IdEstudiante){
             $pathRelativa = "uploads/tareas/".$IdActividad."/".$IdEstudiante;
             if(!file_exists($pathRelativa)){

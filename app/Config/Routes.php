@@ -146,6 +146,9 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/actividadesestudiantes/delete/
    $routes->delete('actividadesestudiantes/delete/(:num)', 'ActividadesEstudiantes::delete/$1');
 
+   //http://localhost/sistema/api/actividadesestudiantes/tareasByActividad/
+   $routes->get('actividadesestudiantes/tareasByActividad/(:num)','ActividadesEstudiantes::tareasByActividad/$1');
+
    //http://localhost/sistema/api/cursos/gettutor/
    $routes->get('cursos/gettutor/(:num)', 'Cursos::getTutor/$1');
 

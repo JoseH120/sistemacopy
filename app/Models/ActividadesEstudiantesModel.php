@@ -43,5 +43,24 @@
         ];
 
         protected $skipValidation = false;
+
+        public function getTareasByActividad($id = null){
+            try{
+                if($id == null){
+                    return null;
+                }
+                $builder = $this->db->table($this->table.' ae');
+                $builder->select('ae.Idactividad_estudiante, ae.UrlTarea, ae.Nota, ae.IdEstudiante, 
+                                  CONCAT(e.PrimerNombre, " ",e.PrimerApellido) Nombre');
+                $builder->join('estudiantes e', 'ae.IdEstudiante = e.IdEstudiante');
+                $builder->where('ae.IdActividad', $id);
+                $query = $builder->get();
+    
+                return $query->getResult();
+            }catch(Exception $e){
+                return null;
+            }
+            
+        }
     }
 ?>
