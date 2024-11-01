@@ -72,7 +72,7 @@ class UsuariosModel extends Model
     public function usuariosNoAsignadosEstudiante()
     {
         $builder = $this->db->table($this->table);
-        $builder->select('IdUsuario, Usuario, Tipo');
+        $builder->select('IdUsuario, Usuario, email, Tipo');
         $builder->where('Tipo = "ESTUDIANTE" and IdUsuario NOT IN (SELECT idusuario FROM estudiantes)');
 
         $query = $builder->get();
@@ -83,7 +83,7 @@ class UsuariosModel extends Model
     public function usuariosNoAsignadosTutor()
     {
         $builder = $this->db->table($this->table);
-        $builder->select('IdUsuario, Usuario, Tipo');
+        $builder->select('IdUsuario, Usuario, email, Tipo');
         $builder->where('Tipo = "TUTOR" and IdUsuario NOT IN (SELECT idusuario FROM tutores)');
 
         $query = $builder->get();
