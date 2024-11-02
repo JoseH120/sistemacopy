@@ -149,8 +149,13 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/actividadesestudiantes/tareasByActividad/
    $routes->get('actividadesestudiantes/tareasByActividad/(:num)','ActividadesEstudiantes::tareasByActividad/$1');
 
+   //http://localhost/sistema/api/actividadesestudiantes/verTarea/$idActividad/$idEstudiante 
+   $routes->get('actividadesestudiantes/verTarea/(:num)/(:num)','ActividadesEstudiantes::verTarea/$1/$2');
+
+
    //http://localhost/sistema/api/cursos/gettutor/
    $routes->get('cursos/gettutor/(:num)', 'Cursos::getTutor/$1');
+
 
 
    //VALIDANDO INFORMACION DE USUARIO SEGUN ID para el caso ESTUDIANTES O TUTORES

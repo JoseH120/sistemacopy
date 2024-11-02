@@ -126,6 +126,26 @@
             }
 
         }
+
+        public function verTarea($idActividad = null, $idEstudiante = null){
+            try{
+                if($idActividad == null || $idEstudiante == null){
+                    return $this->failValidationError('El ID actividad o El ID estudiante no se han recibido');
+                }
+                $detalleTarea = $this->model->verTareaEnviada($idActividad, $idEstudiante);
+
+                if($detalleTarea){
+                    return $this->respond($detalleTarea);
+                }
+                else{
+                    return $this->failServerError('No se ha encontrado registro en la base de datos ');
+                }
+            }
+            catch(Exceptio $e){
+                return $this->failServerError('Ha ocurrido un error en el servidor'.$e->getMessage());
+            }
+        }
+
         private function crear($temporal, $nombre, $IdActividad, $IdEstudiante){
             $pathRelativa = "uploads/tareas/".$IdActividad."/".$IdEstudiante;
             if(!file_exists($pathRelativa)){

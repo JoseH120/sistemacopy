@@ -62,5 +62,27 @@
             }
             
         }
+
+        public function verTareaEnviada($idActividad = null, $idEstudiante = null){
+            try{
+                if($idActividad == null || $idEstudiante == null){
+                    return null;
+                }
+                $builder = $this->db->table($this->table.' ae');
+
+                $builder->select('ae.Idactividad_estudiante, ae.UrlTarea, ae.Nota, 
+                        ae.IdEstudiante, e.PrimerNombre, e.PrimerApellido, a.Tema, a.Descripcion, a.UrlRecurso');
+                
+                $builder->join('estudiantes e', 'ae.IdEstudiante = e.IdEstudiante');
+                $builder->join('actividades a', 'ae.IdActividad = a.IdActividad');
+
+                $builder->where('ae.IdEstudiante = '.$idEstudiante.' and ae.IdActividad = '.$idActividad);
+                $query = $builder->get();
+                return $query->getResult();
+            }
+            catch(Exceptio $e){
+                return null;
+            }
+        }
     }
 ?>
