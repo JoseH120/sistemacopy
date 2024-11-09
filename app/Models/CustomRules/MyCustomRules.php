@@ -7,6 +7,7 @@ use App\Models\CursosModel;
 use App\Models\EstudiantesModel;
 use App\Models\TutoresModel;
 use App\Models\UsuariosModel;
+use App\Models\LeccionesModel;
 
 class MyCustomRules
 {
@@ -49,5 +50,13 @@ class MyCustomRules
         $estudiante = $model->find($id);
 
         return ($estudiante == null) ? false : true;
+    }
+
+    public function is_valid_leccion($id)
+    {
+        $model = new LeccionesModel();
+        $leccion = $model->find($id);
+
+        return ($leccion == null) ? false : true;
     }
 }

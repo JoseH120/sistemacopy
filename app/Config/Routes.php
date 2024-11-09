@@ -29,6 +29,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->delete('estudiantes/delete/(:num)', 'Estudiantes::delete/$1');
 
 
+   
    //URI PARA CONTROLADO DE TUTORES
    //http://localhost/sistema/api/tutores
    $routes->get('tutores', 'Tutores::index');
@@ -46,6 +47,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->delete('tutores/delete/(:num)', 'Tutores::delete/$1');
 
 
+
    //URI PARA CONTROLADO DE CURSOS
    //http://localhost/sistema/api/cursos/index
    $routes->get('cursos', 'Cursos::index');
@@ -61,6 +63,13 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    //http://localhost/sistema/api/cursos/delete/
    $routes->delete('cursos/delete/(:num)', 'Cursos::delete/$1');
+
+   //http://localhost/sistema/api/cursos/gettutor/
+   $routes->get('cursos/gettutor/(:num)', 'Cursos::getTutor/$1');
+
+   //http://localhost/sistema/api/cursos/CursosByTutor/
+   $routes->get('cursos/CursosByTutor/(:num)', 'Cursos::CursosByTutor/$1');
+
 
 
    //URI PARA CONTROLADO DE ESTUDIANTES CURSOS
@@ -87,6 +96,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->get('estudiantescursos/getListbycourse/(:num)', 'EstudiantesCursos::getListByCourse/$1');
 
 
+
    //URI PARA CONTROLADO DE ACTIVIDADES
    //http://localhost/sistema/api/actividades/
    $routes->get('actividades', 'Actividades::index');
@@ -105,6 +115,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    $routes->get('actividades/actividadesByCurso/(:num)', 'Actividades::actividadesByCurso/$1');
 
+   
+   
    //URI PARA CONTROLADO DE USUARIOS
    //http://localhost/sistema/api/usuarios/
    $routes->get('usuarios', 'Usuarios::index');
@@ -130,6 +142,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/usuarios/login/
    $routes->post('usuarios/login', 'Usuarios::login');
 
+   
+
    //URI PARA CONTROLADO DE ACTIVIDADES ESTUDIANTES
    //http://localhost/sistema/api/actividadesestudiantes/
    $routes->get('actividadesestudiantes', 'ActividadesEstudiantes::index');
@@ -153,10 +167,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    $routes->get('actividadesestudiantes/verTarea/(:num)/(:num)','ActividadesEstudiantes::verTarea/$1/$2');
 
 
-   //http://localhost/sistema/api/cursos/gettutor/
-   $routes->get('cursos/gettutor/(:num)', 'Cursos::getTutor/$1');
-
-
 
    //VALIDANDO INFORMACION DE USUARIO SEGUN ID para el caso ESTUDIANTES O TUTORES
    //GET ESTUDIANTE INFO
@@ -164,6 +174,41 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //GET TUTOR INFO
    $routes->get('tutores/getTutor/(:num)', 'Tutores::getTutor/$1');
 
-   //http://localhost/sistema/api/cursos/CursosByTutor/
-   $routes->get('cursos/CursosByTutor/(:num)', 'Cursos::CursosByTutor/$1');
+
+
+   //URI PARA CONTROLADOR DE LECCIONES
+   //http://localhost/sistema/api/lecciones
+   $routes->get('lecciones', 'Lecciones::index');
+
+   //http://localhost/sistema/api/lecciones/leccionesByCurso/
+   $routes->get('lecciones/leccionesByCurso/(:num)', 'Lecciones::leccionesByCurso/$1');
+
+   //http://localhost/sistema/api/lecciones/edit/
+   $routes->get('lecciones/edit/(:num)', 'Lecciones::edit/$1');
+
+   //http://localhost/sistema/api/lecciones/create
+   $routes->post('lecciones/create', 'Lecciones::create');
+
+   $routes->post('lecciones/update/(:num)', 'Lecciones::update/$1');
+
+   $routes->delete('lecciones/delete/(:num)', 'Lecciones::delete/$1');
+
+
+
+   //URI PARA CONTROLADOR DE SECCIONES
+   //http://localhost/sistema/api/secciones
+   $routes->get('secciones', 'Secciones::index');
+
+   //http://localhost/sistema/api/secciones/create
+   $routes->post('secciones/create', 'Secciones::create');
+
+   //http://localhost/sistema/api/secciones/edit/
+   $routes->get('secciones/edit/(:num)', 'Secciones::edit/$1');
+
+   //http://localhost/sistema/api/secciones/update/
+   $routes->post('secciones/update/(:num)', 'Secciones::update/$1');
+
+   //http://localhost/sistema/api/secciones/delete/
+   $routes->delete('secciones/delete/(:num)', 'Secciones::delete/$1');
+
 });
