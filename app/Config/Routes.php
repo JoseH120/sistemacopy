@@ -211,4 +211,21 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/secciones/delete/
    $routes->delete('secciones/delete/(:num)', 'Secciones::delete/$1');
 
+
+   //URI PARA CONTROLADOR DE SOLICIUDES
+   //http://localhost/sistema/api/solicitudes/index
+   $routes->get('solicitudes', 'Solicitudes::index');
+
+   //http://localhost/sistema/api/solicitudes/create
+   $routes->post('solicitudes/create', 'Solicitudes::create');
+
+   //http://localhost/sistema/api/solicitudes/edit/
+   $routes->get('solicitudes/edit/(:num)', 'Solicitudes::edit/$1');
+
+   //http://localhost/sistema/api/solicitudes/update/
+   $routes->put('solicitudes/update/(:num)', 'Solicitudes::update/$1');
+
+   //http://localhost/sistema/api/solicitudes/delete/
+   $routes->delete('solicitudes/delete/(:num)', 'Solicitudes::delete/$1');
+
 });
