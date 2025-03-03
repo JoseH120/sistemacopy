@@ -228,4 +228,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
    //http://localhost/sistema/api/solicitudes/delete/
    $routes->delete('solicitudes/delete/(:num)', 'Solicitudes::delete/$1');
 
+   //http://localhost/sistema/api/solicitudes/index
+   $routes->get('solicitudes/(:num)', 'Solicitudes::misSolicitudes/$1');
+
 });

@@ -35,7 +35,7 @@ class SolicitudesModel extends Model{
             'max_length' => '"comentario" debe ser menor de 500 caracteres'
         ],
         'Estado' => [
-            'required' => 'El valor "grupo" es requerido'
+            'required' => 'El valor "estado" es requerido'
         ],
         'IdTutor' => [
             'required' => 'El valor "ID Tutor" es requerido',
@@ -45,6 +45,15 @@ class SolicitudesModel extends Model{
     ];
 
     protected $skipValidation = false;
+
+    public function misSolicitudes($id)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select('IdSolicitud, NombreCurso, Comentario, Estado, IdTutor, created_at, updated_at');
+        $builder->where('IdTutor', $id);
+        $query = $builder->get();
+        return $query->getRowObject();
+    }
 }
 
 ?>

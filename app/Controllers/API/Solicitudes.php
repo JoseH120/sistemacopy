@@ -91,7 +91,10 @@ class Solicitudes extends ResourceController
         }
     }
 
-    
+    public function misSolicitudes($id)
+    {
+        return $this->respond($this->model->misSolicitudes($id));
+    }
 }
 
 ?>
