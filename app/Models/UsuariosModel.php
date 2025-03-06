@@ -99,4 +99,20 @@ class UsuariosModel extends Model
         $query = $builder->get();
         return $query->getRowObject();
     }
+    public function getTutorId($idUsuario)
+    {
+        $builder = $this->db->table('tutores');
+        $builder->select('idtutor');
+        $builder->where('idusuario', $idUsuario);
+        $result = $builder->get();
+        return $result->getRowObject();
+    }
+    public function getEstudianteId($idUsuario)
+    {
+        $builder = $this->db->table('estudiantes');
+        $builder->select('idestudiante');
+        $builder->where('idusuario', $idUsuario);
+        $result = $builder->get();
+        return $result->getRowObject();
+    }
 }

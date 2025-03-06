@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SolicitudesModel extends Model{
+class SolicitudesModel extends Model
+{
 
     protected $table = 'solicitudes';
     protected $primaryKey = 'IdSolicitud';
@@ -55,5 +57,3 @@ class SolicitudesModel extends Model{
         return $query->getRowObject();
     }
 }
-
-?>

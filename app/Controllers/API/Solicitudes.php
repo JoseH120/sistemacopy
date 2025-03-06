@@ -4,7 +4,7 @@ namespace App\Controllers\API;
 
 use CodeIgniter\RESTful\ResourceController;
 use App\Models\SolicitudesModel;
-use Exception; 
+use Exception;
 
 class Solicitudes extends ResourceController
 {
@@ -93,8 +93,7 @@ class Solicitudes extends ResourceController
 
     public function misSolicitudes($id)
     {
-        return $this->respond($this->model->misSolicitudes($id));
+        $solicitudes = $this->model->where('idTutor', $id)->orderBy('created_at', 'desc')->findAll();
+        return $this->respond($solicitudes);
     }
 }
-
-?>

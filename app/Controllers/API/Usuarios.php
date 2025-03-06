@@ -9,6 +9,7 @@ use CodeIgniter\HTTP\Message;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
 use OAuth2\Request;
+use PhpParser\Node\Expr\Cast\String_;
 use Predis\Command\Argument\Search\ExplainArguments;
 use SebastianBergmann\CodeUnit\CodeUnit;
 
@@ -125,10 +126,20 @@ class Usuarios extends ResourceController
         if ($code === 200 || $code === 201) {
             $email = $this->request->getPost("username");
             $usuario = $this->model->getUsuarioByEmail($email);
+            $idTutor = 0;
             //CONVIERTIENDO EL OBJECTO BODY A UN ARRAY MEDIANTE LA FUNCION JSON-DECODE
             $body = json_decode($body);
-            //CONCATENANDO LOS ARRAYS PARA ENVIAR UN SOLO RESULTADO
-            $final = array_merge((array)$body, (array)$usuario);
+            //AGREGANDO EL ID TUTOR SI TIPO ES TUTOR
+            if ($usuario->tipo ==  'TUTOR') {
+                $idTutor = $this->model->getTutorId($usuario->idusuario);
+                $final = array_merge((array)$body, (array)$usuario, (array)$idTutor);
+            } else if ($usuario->tipo == 'ESTUDIANTE') {
+                $idestudiante = $this->model->getEstudianteId($usuario->idusuario);
+                $final = array_merge((array)$body, (array)$usuario, (array)$idestudiante);
+            } else {
+                $final = array_merge((array)$body, (array)$usuario);
+            }
+
             //ENVIANDO EL TOKEN CON LOS DATOS DEL USUARIO
             return $this->respond($final, $code);
         } else {
