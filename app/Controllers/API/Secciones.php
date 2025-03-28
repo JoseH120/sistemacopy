@@ -29,10 +29,10 @@ class Secciones extends ResourceController
     //servicio de insertar
     public function create()
     {
-
+        // Se obtiene los campos del formulario enviado
         $Contenido = $this->request->getVar('Contenido');
         $IdLeccion = $this->request->getVar('IdLeccion');
-
+        $Url = $this->request->getVar('Url');
         $secciones = array('Contenido' => $Contenido, 'IdLeccion' => $IdLeccion);
 
         if (isset($_FILES['file'])) {
@@ -46,6 +46,9 @@ class Secciones extends ResourceController
                 . $IdLeccion . "/" . str_replace(" ", "", $nombre);
 
             $secciones['Url'] = $URLArchivo;
+        } else if (isset($Url)) {
+            //Agregamos la llave y el valor al array que retornaremos en caso de exito.
+            $secciones['Url'] = $Url;
         }
 
         try {

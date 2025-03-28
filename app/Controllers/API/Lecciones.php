@@ -34,6 +34,7 @@ class Lecciones extends ResourceController{
         $Descripcion = $this->request->getVar('Descripcion');
         $FechaPublicacion = $this->request->getVar('FechaPublicacion');
         $IdCurso = $this->request->getVar('IdCurso');
+        $Url = $this->request->getVar('Url');
 
         //Construimos el array para insertar en la tabla
         $lecciones = array('Tema' => $Tema , 'Descripcion' => $Descripcion,
@@ -42,7 +43,6 @@ class Lecciones extends ResourceController{
 
         //Validamos si han enviado un archivo
         if(isset($_FILES['file'])){
-
             //Obtnemos los datos del archivo enviado
             $nombre = $_FILES['file']['name'];
             $tipo = $_FILES['file']['type'];
@@ -56,6 +56,11 @@ class Lecciones extends ResourceController{
             //Agregamos la llave y el valor al array que retornaremos en caso de exito
             $lecciones['Url'] = $URLArchivo;
         }
+        //Validamos si han enviado un enlace
+        else if(isset($Url)){
+            //Agregamos la llave y el valor al array que retornaremos en caso de exito
+            $lecciones['Url'] = $Url;
+        }   
 
         try { 
             ///Insertamos a la base de datos
