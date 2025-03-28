@@ -233,5 +233,4 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
    //http://localhost/sistema/api/solicitudes/index
    $routes->get('solicitudes/(:num)', 'Solicitudes::misSolicitudes/$1');
-
 });

@@ -174,7 +174,7 @@ class Secciones extends ResourceController
             } else {
                 return $this->failValidationError('No se ha podido eliminar el registro');
             }
-        } catch (Exceptio $e) {
+        } catch (Exception $e) {
             return $this->failServerError('Ha ocurrido un error en el servidor ' . $e);
         }
     }
